@@ -1,0 +1,7 @@
+services:
+  web:
+    container_name: earningclaw-web
+    build: .
+    ports:
+      - "30480:80"
+    restart: unless-stopped
