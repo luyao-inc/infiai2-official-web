@@ -1,7 +1,15 @@
+# 与本机 InfiAI 栈共用 80/443（infiai-nginx），本站仅对内暴露 80，由对方 Nginx 反代 + TLS
 services:
   web:
     container_name: earningclaw-web
     build: .
-    ports:
-      - "30480:80"
+    expose:
+      - "80"
     restart: unless-stopped
+    networks:
+      - infiai
+
+networks:
+  infiai:
+    external: true
+    name: infiai_infiai-network
