@@ -445,9 +445,13 @@ function BottomCta({ onDownloadClick }: { onDownloadClick: () => void }) {
           <button type="button" className={btnPrimary} onClick={onDownloadClick}>
             {t.ui.download}
           </button>
-          <a className={btnGhost} href={SITE.githubUrl} target="_blank" rel="noreferrer">
-            {t.ui.learnMore}
-          </a>
+          <button
+            type="button"
+            className={btnGhost}
+            onClick={() => window.alert(t.ui.comingSoon)}
+          >
+            {t.ui.earningHub}
+          </button>
         </div>
       </div>
     </section>

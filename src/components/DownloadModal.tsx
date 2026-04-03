@@ -188,7 +188,7 @@ export function DownloadModal({ open, onClose }: Props) {
               {others.map((a) => (
                 <li key={a.name}>
                   <a
-                    className="flex items-center justify-between gap-3 text-sm text-[#EAB34D] hover:text-[#F6C15E]"
+                    className="flex items-center justify-between gap-3 text-sm text-zinc-400 transition-colors hover:text-[#EAB34D]"
                     href={a.browser_download_url}
                     target="_blank"
                     rel="noreferrer"
@@ -204,7 +204,7 @@ export function DownloadModal({ open, onClose }: Props) {
 
         <p className="mt-6 text-center">
           <a
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#EAB34D] underline-offset-4 hover:text-[#F6C15E] hover:underline"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 underline-offset-4 transition-colors hover:text-[#EAB34D] hover:underline"
             href={SITE.downloadUrl}
             target="_blank"
             rel="noreferrer"
