@@ -334,25 +334,6 @@ function ComparisonSection() {
             </tbody>
           </table>
         </div>
-        <p className="mt-8 text-center text-sm text-zinc-500">
-          <a
-            className="font-medium text-blue-300 underline-offset-4 hover:text-blue-200 hover:underline"
-            href={SITE.discordUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {SITE.name}
-          </a>
-          <span className="mx-2 text-zinc-600">×</span>
-          <a
-            className="font-medium text-blue-300 underline-offset-4 hover:text-blue-200 hover:underline"
-            href={SITE.orgGithubUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t.ui.officialLink}
-          </a>
-        </p>
       </div>
     </section>
   )
