@@ -123,7 +123,7 @@ export function DownloadModal({ open, onClose }: Props) {
         <h2 id="ec-download-title" className="pr-10 text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
           {title}
           {release?.tag_name ? (
-            <span className="ml-2 inline-flex align-middle rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/15 px-2 py-0.5 text-xs font-semibold text-[#F6C15E]">
+            <span className="ml-2 inline-flex align-middle rounded-full border border-blue-500/40 bg-blue-500/15 px-2 py-0.5 text-xs font-semibold text-blue-300">
               {release.tag_name}
             </span>
           ) : null}
@@ -132,7 +132,7 @@ export function DownloadModal({ open, onClose }: Props) {
         {releasedLine ? <p className="mt-2 text-sm text-zinc-500">{releasedLine}</p> : null}
 
         <p className="mt-4 flex gap-2 text-sm text-zinc-400">
-          <span className="shrink-0 text-[#D4AF37]" aria-hidden>
+          <span className="shrink-0 text-blue-300" aria-hidden>
             ℹ
           </span>
           <span>{detectedLine}</span>
@@ -151,9 +151,9 @@ export function DownloadModal({ open, onClose }: Props) {
                 href={primary.browser_download_url}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-4 transition hover:border-[#D4AF37]/40 hover:bg-white/[0.07]"
+                className="flex items-center gap-4 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-4 transition hover:border-blue-500/40 hover:bg-white/[0.07]"
               >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-white/10 bg-black/40 text-[#D4AF37]">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-white/10 bg-black/40 text-blue-300">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
                     <path
                       d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v11"
@@ -170,7 +170,7 @@ export function DownloadModal({ open, onClose }: Props) {
                     {primary.name} · {formatBytes(primary.size, dateLoc)}
                   </span>
                 </span>
-                <span className="shrink-0 rounded-lg bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#EAB34D] px-4 py-2 text-sm font-semibold text-[#141109]">
+                <span className="shrink-0 rounded-lg bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#3b82f6] px-4 py-2 text-sm font-semibold text-white">
                   {ui.download}
                 </span>
               </a>
@@ -188,7 +188,7 @@ export function DownloadModal({ open, onClose }: Props) {
               {others.map((a) => (
                 <li key={a.name}>
                   <a
-                    className="flex items-center justify-between gap-3 text-sm text-zinc-400 transition-colors hover:text-[#EAB34D]"
+                    className="flex items-center justify-between gap-3 text-sm text-zinc-400 transition-colors hover:text-blue-300"
                     href={a.browser_download_url}
                     target="_blank"
                     rel="noreferrer"
@@ -204,7 +204,7 @@ export function DownloadModal({ open, onClose }: Props) {
 
         <p className="mt-6 text-center">
           <a
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 underline-offset-4 transition-colors hover:text-[#EAB34D] hover:underline"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 underline-offset-4 transition-colors hover:text-blue-300 hover:underline"
             href={SITE.downloadUrl}
             target="_blank"
             rel="noreferrer"

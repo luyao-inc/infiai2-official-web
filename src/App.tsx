@@ -5,11 +5,11 @@ import { useLocale } from './i18n/LocaleProvider'
 
 const shell = 'min-h-screen bg-[#050508] text-zinc-400 antialiased'
 const glow =
-  'pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_85%_55%_at_50%_-15%,rgba(212,175,55,0.28),transparent_55%),radial-gradient(ellipse_50%_40%_at_100%_0%,rgba(246,193,94,0.1),transparent_50%),linear-gradient(#050508,#050508)]'
+  'pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_85%_55%_at_50%_-15%,rgba(59,130,246,0.2),transparent_55%),radial-gradient(ellipse_50%_40%_at_100%_0%,rgba(96,165,250,0.12),transparent_50%),linear-gradient(#050508,#050508)]'
 const container = 'mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8'
 
 const btnPrimary =
-  'inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#EAB34D] px-5 py-2.5 text-sm font-semibold text-[#141109] shadow-[0_8px_28px_-4px_rgba(212,175,55,0.5)] transition hover:shadow-[0_12px_36px_-4px_rgba(246,193,94,0.45)] hover:brightness-105 active:scale-[0.98]'
+  'inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#3b82f6] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_28px_-4px_rgba(59,130,246,0.45)] transition hover:shadow-[0_12px_36px_-4px_rgba(96,165,250,0.42)] hover:brightness-105 active:scale-[0.98]'
 const btnGhost =
   'inline-flex items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/[0.04] px-5 py-2.5 text-sm font-semibold text-zinc-100 transition hover:border-white/20 hover:bg-white/[0.07] active:scale-[0.98]'
 
@@ -21,7 +21,7 @@ function LocaleSwitcher() {
   const { locale, setLocale, t } = useLocale()
   const pill = 'rounded-md px-2.5 py-1 text-xs font-semibold transition'
   const active =
-    'bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#EAB34D] text-[#141109] shadow-sm'
+    'bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#3b82f6] text-white shadow-sm'
   const idle = 'text-zinc-500 hover:text-zinc-300'
   return (
     <div
@@ -58,11 +58,11 @@ function Header() {
       >
         <a className="group flex items-center gap-2.5" href="#">
           <img
-            src="/earningclaw-logo.png"
+            src="/logo.png"
             alt=""
             width={36}
             height={36}
-            className="h-9 w-9 shrink-0 rounded-[10px] object-contain object-center ring-1 ring-white/10 transition group-hover:ring-amber-400/30"
+            className="h-9 w-9 shrink-0 rounded-[10px] object-contain object-center ring-1 ring-white/10 transition group-hover:ring-blue-400/40"
           />
           <span className="text-[15px] font-bold tracking-tight text-zinc-100">
             {SITE.name}
@@ -99,7 +99,7 @@ function HeroSection({ onDownloadClick }: { onDownloadClick: () => void }) {
       aria-label={t.ui.heroIntroAria}
     >
       <div className="mx-auto max-w-4xl text-center">
-        <span className="inline-flex items-center rounded-full border border-[#D4AF37]/45 bg-[#D4AF37]/12 px-3.5 py-1 text-xs font-medium text-[#F6C15E]">
+        <span className="inline-flex items-center rounded-full border border-blue-500/45 bg-blue-500/12 px-3.5 py-1 text-xs font-medium text-blue-300">
           {h.badge}
         </span>
         <h1 className="mt-7 text-[2rem] font-semibold leading-[1.12] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.08] md:text-6xl">
@@ -155,17 +155,17 @@ function FeaturesSection() {
           {t.coreFeatures.map((f) => (
             <article
               key={f.id}
-              className="grid gap-8 rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset] transition hover:border-[#D4AF37]/35 sm:p-8 lg:grid-cols-2 lg:gap-10"
+            className="grid gap-8 rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-transparent p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.03)_inset] transition hover:border-blue-500/35 sm:p-8 lg:grid-cols-2 lg:gap-10"
             >
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#EAB34D]">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-300">
                   {f.eyebrow}
                 </p>
                 <h3 className="mt-2 text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
                   {f.title}
                 </h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-zinc-400">{f.body}</p>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-zinc-500 marker:text-[#D4AF37]/90">
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-zinc-500 marker:text-blue-400/90">
                   {f.bullets.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
@@ -254,16 +254,16 @@ function GettingStartedSection() {
           {g.steps.map((s) => (
             <div
               key={s.n}
-              className="rounded-2xl border border-white/[0.08] bg-gradient-to-b from-[#D4AF37]/[0.14] to-white/[0.02] p-6"
+            className="rounded-2xl border border-white/[0.08] bg-gradient-to-b from-blue-500/[0.14] to-white/[0.02] p-6"
             >
-              <div className="text-xs font-bold text-[#F6C15E]">{s.n}</div>
+              <div className="text-xs font-bold text-blue-300">{s.n}</div>
               <h3 className="mt-3 text-lg font-semibold text-zinc-50">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-500">{s.text}</p>
             </div>
           ))}
         </div>
-        <div className="mt-8 rounded-2xl border border-[#D4AF37]/35 bg-[#D4AF37]/[0.1] p-6 sm:p-8">
-          <h4 className="text-sm font-semibold text-[#F6C15E]">{t.ui.proTip}</h4>
+        <div className="mt-8 rounded-2xl border border-blue-500/35 bg-blue-500/[0.1] p-6 sm:p-8">
+          <h4 className="text-sm font-semibold text-blue-300">{t.ui.proTip}</h4>
           <p className="mt-2 text-sm leading-relaxed text-zinc-300">{g.proTip}</p>
         </div>
       </div>
@@ -299,7 +299,7 @@ function ComparisonSection() {
                     scope="col"
                     className={`px-4 py-3.5 font-semibold ${
                       i === recommendedCol
-                        ? 'bg-[#D4AF37]/25 text-white'
+                        ? 'bg-blue-500/25 text-white'
                         : 'text-zinc-300'
                     }`}
                   >
@@ -323,7 +323,7 @@ function ComparisonSection() {
                     <td
                       key={`${row.dim}-${String(j)}`}
                       className={`px-4 py-3.5 text-zinc-500 ${
-                        j === recommendedCol ? 'bg-[#D4AF37]/[0.12] text-zinc-300' : ''
+                        j === recommendedCol ? 'bg-blue-500/[0.12] text-zinc-300' : ''
                       }`}
                     >
                       {cell}
@@ -336,7 +336,7 @@ function ComparisonSection() {
         </div>
         <p className="mt-8 text-center text-sm text-zinc-500">
           <a
-            className="font-medium text-[#EAB34D] underline-offset-4 hover:text-[#F6C15E] hover:underline"
+            className="font-medium text-blue-300 underline-offset-4 hover:text-blue-200 hover:underline"
             href={SITE.discordUrl}
             target="_blank"
             rel="noreferrer"
@@ -345,7 +345,7 @@ function ComparisonSection() {
           </a>
           <span className="mx-2 text-zinc-600">×</span>
           <a
-            className="font-medium text-[#EAB34D] underline-offset-4 hover:text-[#F6C15E] hover:underline"
+            className="font-medium text-blue-300 underline-offset-4 hover:text-blue-200 hover:underline"
             href={SITE.orgGithubUrl}
             target="_blank"
             rel="noreferrer"
@@ -413,7 +413,7 @@ function FAQSection() {
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[15px] font-medium text-zinc-100 [&::-webkit-details-marker]:hidden">
                 {item.q}
-                <span className="select-none text-lg font-light text-[#D4AF37]">
+                <span className="select-none text-lg font-light text-blue-300">
                   <span className="ec-plus">+</span>
                   <span className="ec-minus">−</span>
                 </span>
@@ -433,7 +433,7 @@ function BottomCta({ onDownloadClick }: { onDownloadClick: () => void }) {
   const { t } = useLocale()
   return (
     <section
-      className="border-t border-white/[0.06] bg-gradient-to-b from-[#D4AF37]/[0.1] to-transparent py-20 text-center sm:py-24"
+      className="border-t border-white/[0.06] bg-gradient-to-b from-blue-500/[0.1] to-transparent py-20 text-center sm:py-24"
       aria-label={t.ui.ctaAria}
     >
       <div className={container}>
@@ -466,11 +466,9 @@ function SiteFooter() {
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
           <a
             className="text-zinc-500 hover:text-zinc-200"
-            href={SITE.githubUrl}
-            target="_blank"
-            rel="noreferrer"
+            href="#"
           >
-            {t.ui.official}
+            {t.ui.download}
           </a>
           <a
             className="text-zinc-500 hover:text-zinc-200"

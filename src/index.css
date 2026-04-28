@@ -2,9 +2,9 @@
 
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --color-claw: #d4af37;
-  --color-claw-bright: #f6c15e;
-  --color-claw-deep: #b8860b;
+  --color-infiai-blue: #3b82f6;
+  --color-infiai-blue-soft: #60a5fa;
+  --color-infiai-gray-deep: #0a0a0a;
 }
 
 @layer base {

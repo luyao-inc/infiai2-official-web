@@ -2,31 +2,31 @@ import type { Messages } from './types'
 
 export const en: Messages = {
   meta: {
-    title: 'EarningClaw — The AI Claw Built to Help You Earn | Local · Proprietary',
+    title: 'InfiAI — Your Avatar, Infinite Possibilities',
     description:
-      'EarningClaw: proprietary, local-first AI—from discovery across sources, to mining actionable opportunities, to delivering conclusions to your channels. One machine, closed loop.',
+      'A digital avatar platform for real people—social, content, and monetization in one. Your personal digital companion and a compounding engine of value for professionals and IPs.',
   },
   ui: {
     download: 'Download Now',
     learnMore: 'Learn more',
-    earningHub: 'EarningHub',
+    earningHub: 'Help Center',
     comingSoon: 'Coming soon',
     official: 'Official',
-    discord: 'Discord',
+    discord: 'Direct Access',
     openclawEcosystem: 'OpenClaw ecosystem',
     useCase: 'Use Case',
     dimension: 'Dimension',
     recommended: 'Recommended',
     officialLink: 'Official site',
     proTip: 'Pro tip',
-    featuresTitle: 'A desktop app built for earning-focused workflows',
-    featuresSub: 'Five capabilities that turn an information edge into action',
+    featuresTitle: 'Digital avatars, all in one place',
+    featuresSub: 'From creation and interaction to monetization for all scenarios',
     faqTitle: 'FAQ',
-    faqLead: 'Common questions about EarningClaw',
-    copyrightSuffix: 'Proprietary software · built to earn',
-    bottomCtaTitle: 'Ready to put your earning claw online?',
+    faqLead: 'Common questions about InfiAI',
+    copyrightSuffix: 'Your Avatar · Infinite Possibilities',
+    bottomCtaTitle: 'Ready to create your InfiAI avatar?',
     bottomCtaSub:
-      'Download EarningClaw, configure in minutes, and never miss a 24/7 opportunity window',
+      'Download InfiAI, configure in minutes, and start interacting and creating',
     langAria: 'Language',
     langZh: '中文',
     langEn: 'EN',
@@ -52,103 +52,102 @@ export const en: Messages = {
     envUnknown: 'Unknown environment',
   },
   nav: [
-    { label: 'Features', href: '#features' },
+    { label: 'Product', href: '#features' },
     { label: 'Skills', href: '#skills' },
     { label: 'Get started', href: '#start' },
     { label: 'Compare', href: '#compare' },
     { label: 'FAQ', href: '#faq' },
   ],
   hero: {
-    badge: 'Discover · Mine · Deliver',
-    headline: 'Discover and mine opportunities—agents built to earn',
+    badge: 'Your Avatar · Infinite Possibilities',
+    headline: 'InfiAI',
     sub:
-      'A proprietary AI that runs locally: discover signals across filings and sources, mine the opportunity with agentic analysis, then deliver actionable conclusions to Feishu, Telegram, email, and more. OpenClaw-compatible extensions; the full loop stays on your machine.',
-    tagline: 'Always on, never stops',
+      'A digital avatar platform for real people—social, content, and monetization in one. Your personal digital companion, and a compounding engine of value for professionals and IPs.',
+    tagline: 'A digital companion and a compounding engine',
     intro: [
-      'One pipeline: discover the move → mine the setup → deliver the summary and alerts—no more scattered browser tabs.',
-      'On an always-on box, it is the 24/7 operator for discovery, mining, and delivery.',
+      'Create your own avatar in about one minute, with knowledge-base upload and cross-platform content reuse.',
+      'Support interactions among people and avatars through text, voice, video, and multimodal workflows.',
     ],
-    audience: 'For investors, traders, and builders who treat attention as money',
+    audience: 'For everyday users, creators, and professional IPs',
   },
   featuresToSkillsBridge:
-    'More than tooling—a full AI OS wired around discovery, mining, and delivery',
+    'More than chat tools—a platform where avatars continuously create value',
   coreFeatures: [
     {
       id: 'scraping',
-      eyebrow: 'Real-time collection, multi-source aggregation',
-      title: 'Cross-source scraping—nothing important slips by',
+      eyebrow: 'Fast creation',
+      title: 'Fast and easy personal avatars',
       body:
-        'Independent browser sessions can log into terminals, news, policy portals, and social—tuned for different markets and languages—so monetizable information surfaces faster.',
+        'Create your own avatar in as little as one minute—no code required. Upload a knowledge base, reuse historical content, and extend capabilities with skill plugins.',
       bullets: [
-        'Autonomous browsing with structured takeaways',
-        'Multi-engine search plus full-page capture',
-        'Isolated sessions for your data-terminal identities',
+        'Zero-code onboarding',
+        'Knowledge-base powered memory',
+        'Extensible skill plugins',
       ],
       useCase:
-        'Every morning, scan ten sources and ship a US / A-share / HK briefing before the opening print.',
+        'Creators can quickly launch personal avatars for continuous fan interaction and Q&A.',
     },
     {
       id: 'cron',
-      eyebrow: 'Scheduled tasks, nonstop monitoring',
-      title: 'Visual scheduling—opportunity comes to you',
+      eyebrow: 'Rich interaction',
+      title: 'Natural and immersive experiences',
       body:
-        'Pick intervals—minutes, hours, or daily anchors. EarningClaw runs on autopilot with zero cron syntax: choose the time, choose the job, done.',
+        'Support seamless communication among people and avatars through text, voice, video, and live interaction.',
       bullets: [
-        'Track pages and datasets on a cadence',
-        'Watch KPIs, policy drops, and listing announcements',
-        'Push anomalies straight to messaging endpoints',
+        'DM and group scenarios ready out of the box',
+        'Voice/video for stronger companionship',
+        'Interaction closer to human expression',
       ],
       useCase:
-        'Poll SEC / HKEX every fifteen minutes and beam fresh filings to Telegram before liquidity reprices.',
+        'Users can continuously engage with creator avatars for guidance and companionship.',
     },
     {
       id: 'channels',
-      eyebrow: 'Omnichannel delivery—money waits for no one',
-      title: 'WhatsApp / Telegram / Discord / Feishu / Email',
+      eyebrow: 'Content ecosystem',
+      title: 'A rich and diverse content platform',
       body:
-        'You cannot live inside a dashboard. Twenty-plus channels deliver alerts, briefs, and summaries to your phone so each ping can map to a trade, a hedge, or a monetized post.',
+        'Build an immersive personalized feed where humans and avatars co-create. Keep your IP active and growing even when you are offline.',
       bullets: [
-        'Instant anomaly alerts',
-        'Daily executive summaries',
-        'Team broadcasts to Feishu or Discord',
+        'Unified create/browse/engage loop',
+        'Human-avatar co-creation model',
+        'Long-term reusable content assets',
       ],
       useCase:
-        'Major headline or filing drops—WhatsApp and your team channel see it within seconds.',
+        'Professional users can keep output cadence through avatars and improve audience retention.',
     },
     {
       id: 'analysis',
-      eyebrow: 'Agent-native analysis—not just transport',
-      title: 'More than a crawler—an analyst that thinks',
+      eyebrow: 'Cross-device sync',
+      title: 'Consistent multi-platform experience',
       body:
-        'Built-in agent runtime for multi-step reasoning: compare, summarize, and judge—not just paste URLs—across ten-plus AI vendors (OpenAI, Anthropic, Google, OpenRouter, Moonshot, Qwen, and more).',
+        'Sync states across desktop and mobile so conversations and avatar behavior remain continuous on every device.',
       bullets: [
-        'Contrast reports and isolate opinion divergence',
-        'Distill long PDFs to a one-line thesis',
-        'Flag time-series anomalies',
-        'Multilingual intake in one pipeline',
+        'Desktop and mobile consistency',
+        'Persistent conversation state',
+        'Seamless device switching',
       ],
       useCase:
-        'Hand it three sell-side PDFs and receive a decision-ready contrast of consensus, risk, and deltas.',
+        'Create on desktop during the day and continue interactions on mobile at night.',
     },
     {
       id: 'local',
-      eyebrow: 'Data stays on your machine',
-      title: 'Local by default—your playbook stays yours',
+      eyebrow: 'Monetization',
+      title: 'Turn avatars into sustained value',
       body:
-        'Serious money means serious IP. EarningClaw ships as proprietary, closed-source software so core mechanics stay protected—while your machine holds the crown-jewel data and keys.',
+        'Use subscriptions, paid knowledge services, and custom avatar offerings to convert your expertise and time into scalable revenue.',
       bullets: [
-        'Local storage—no pass-through to our cloud for your content',
-        'API keys encrypted at rest',
-        'Proprietary (closed-source) delivery to guard product and your workflows',
+        'Multiple avatar business models',
+        'Higher output with lower repetitive labor',
+        'Break through individual time limits',
       ],
       useCase:
-        'Compliance-heavy desks need sensitive playbooks off third-party SaaS—local plus proprietary posture fits.',
+        'Professional IPs can run 24/7 interactions to scale private-domain operations and income.',
     },
   ],
   skillsSection: {
     headline: 'Serious skill depth—55+ capabilities ready to run',
     sub:
-      'Compatible with the OpenClaw ecosystem for productivity, engineering, media, and home automations—earning workflows plus everyday leverage in one stack.',
+      'Compatible with the OpenClaw ecosystem across productivity, engineering, media, and smart home scenarios.',
     categories: [
       {
         title: 'Productivity',
@@ -196,26 +195,26 @@ export const en: Messages = {
       {
         n: '01',
         title: 'Download & install',
-        text: 'Pick macOS, Windows, or Linux, double-click, and follow the wizard.',
+        text: 'Pick macOS or Windows, then follow the installer wizard.',
       },
       {
         n: '02',
-        title: 'Configure AI',
-        text: 'Select a provider and paste API keys—visual UI only. Flagship models recommended.',
+        title: 'Sign in and finish basic setup',
+        text: 'Sign in with your account, complete onboarding and required permissions, then start using avatar capabilities.',
       },
       {
         n: '03',
-        title: 'Start earning workflows',
-        text: 'Chat instructions or schedule monitors for filings, tape, and narrative.',
+        title: 'Start your avatar workflows',
+        text: 'Use chat commands or scheduled tasks to automate information summaries, interaction replies, and content generation.',
       },
     ],
     proTip:
-      'Park EarningClaw on a spare tower, grant access, and it becomes a 24/7 intel claw—the more access it earns, the more surface area you can monetize.',
+      'InfiAI supports both local always-on operation and cloud hosting: run it on your own device, or keep services online 24/7 via managed cloud deployment.',
   },
   comparison: {
     headline: 'How approaches compare',
-    sub: 'See how EarningClaw stacks up when the goal is earning, not just chatting',
-    columns: ['EarningClaw', 'OpenClaw', 'Data Terminal SaaS', 'General Agent'],
+    sub: 'See how InfiAI compares in digital-avatar-first scenarios',
+    columns: ['InfiAI', 'OpenClaw', 'Traditional social/tools', 'General Agent'],
     recommendedCol: 0,
     rows: [
       {
@@ -306,37 +305,28 @@ export const en: Messages = {
     ],
   },
   trust: {
-    headline: 'Built where information meets money',
+    headline: 'A platform that empowers people and IPs',
     body:
-      'We obsess over timely data, multi-source intelligence, and compliance realities—and we ship those learnings as a proprietary desktop product focused on helping you earn, not as a science-fair repo.',
+      'InfiAI connects social, content, and monetization into one platform, serving both everyday users and professional creators with compounding digital-avatar value.',
     pillars: [
-      {
-        title: 'Commercial-grade',
-        text: 'Closed-source delivery with a roadmap you can bet workflows on',
-      },
-      {
-        title: 'Built to earn',
-        text: 'Flows prioritize markets, catalysts, and monetizable attention',
-      },
-      { title: 'Local first', text: 'Your machine holds the sensitive slices' },
-      {
-        title: 'Ecosystem ready',
-        text: 'Extends through the mature OpenClaw skill fabric',
-      },
+      { title: 'Digital companion', text: 'Everyday users get low-friction personal avatars and companionship' },
+      { title: 'IP compounding', text: 'Professional users scale influence and value through 24/7 avatars' },
+      { title: 'Content ecosystem', text: 'Humans and avatars co-create persistent content assets' },
+      { title: 'Ecosystem ready', text: 'Extend capabilities through mature OpenClaw integrations' },
     ],
   },
   faqs: [
     {
-      q: 'What is EarningClaw?',
-      a: 'A proprietary desktop AI assistant that helps you earn by monitoring filings, narrative, and market-moving data, pushing distilled conclusions to your channels, and coordinating OpenClaw-compatible skills.',
+      q: 'What is an InfiAI digital avatar?',
+      a: "It is an AI agent shaped by your cognition and personality, able to interact in your style and extend what you can do beyond time and place.",
     },
     {
-      q: 'How is it different from ChatGPT / Claude?',
-      a: 'Scheduling, scraping, and proactive pushes—not a general chat window—with emphasis on tradable context instead of small talk.',
+      q: 'How do I create my avatar?',
+      a: 'Download the InfiAI client and create it in minutes. Knowledge-base and memory systems help the avatar become increasingly aligned with you.',
     },
     {
-      q: 'Do I need coding skills?',
-      a: 'No for setup and scheduling. Advanced users can extend via skills and configuration.',
+      q: 'How is it different from other AI products?',
+      a: 'Unlike passive Q&A tools, InfiAI avatars can proactively interact, create, and collaborate to empower you rather than replace you.',
     },
     {
       q: 'Is my data secure?',
@@ -348,11 +338,11 @@ export const en: Messages = {
     },
     {
       q: 'Is there a fee?',
-      a: 'EarningClaw is commercial software sold under license or subscription—see official channels for current plans. You still pay AI providers for the API traffic you configure.',
+      a: 'InfiAI is commercial software sold under license or subscription—see official channels for current plans. You still pay AI providers for the API traffic you configure.',
     },
     {
-      q: 'Is EarningClaw open source?',
-      a: 'No. EarningClaw is proprietary closed-source software. We do not publish source code, by design, so we can protect the product and the workflows you rely on to earn.',
+      q: 'Is InfiAI open source?',
+      a: 'No. InfiAI is proprietary closed-source software. We do not publish source code by design, so we can protect product capabilities and user workflows.',
     },
     {
       q: 'Why run it on a dedicated personal machine?',

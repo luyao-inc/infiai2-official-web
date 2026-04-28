@@ -1,15 +1,8 @@
-# 与本机 InfiAI 栈共用 80/443（infiai-nginx），本站仅对内暴露 80，由对方 Nginx 反代 + TLS
+# 独立部署：直接对外映射端口，不依赖外部 Docker 网络
 services:
   web:
-    container_name: earningclaw-web
+    container_name: infiai-official-web
     build: .
-    expose:
-      - "80"
+    ports:
+      - "18080:80"
     restart: unless-stopped
-    networks:
-      - infiai
-
-networks:
-  infiai:
-    external: true
-    name: infiai_infiai-network
