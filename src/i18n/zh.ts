@@ -313,6 +313,7 @@ export const zh: Messages = {
       { title: '生态兼容', text: '支持接入 OpenClaw 扩展能力并持续升级' },
     ],
   },
+  /** GEO：与仓库根目录 `index.html` 内 `id="ld-faq"` 的中文 FAQ JSON-LD 保持一致 */
   faqs: [
     {
       q: '什么是 InfiAI 数字分身？',

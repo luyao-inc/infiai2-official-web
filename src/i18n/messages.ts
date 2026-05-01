@@ -9,5 +9,3 @@ export const messages: Record<Locale, Messages> = {
 }
 
 export const defaultLocale: Locale = 'zh'
-
-export const STORAGE_KEY = 'infiai2-locale'

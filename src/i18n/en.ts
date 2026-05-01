@@ -315,6 +315,7 @@ export const en: Messages = {
       { title: 'Ecosystem ready', text: 'Extend capabilities through mature OpenClaw integrations' },
     ],
   },
+  /** GEO：与 `en/index.html` 内 `id="ld-faq"` 的英文 FAQ JSON-LD 保持一致 */
   faqs: [
     {
       q: 'What is an InfiAI digital avatar?',

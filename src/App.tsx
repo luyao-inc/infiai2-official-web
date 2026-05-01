@@ -50,16 +50,16 @@ function LocaleSwitcher() {
 }
 
 function Header() {
-  const { t } = useLocale()
+  const { t, homePath } = useLocale()
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#050508]/75 backdrop-blur-xl supports-[backdrop-filter]:bg-[#050508]/55">
       <div
         className={`${container} flex flex-wrap items-center justify-between gap-4 py-3.5`}
       >
-        <a className="group flex items-center gap-2.5" href="#">
+        <a className="group flex items-center gap-2.5" href={homePath}>
           <img
             src="/logo.png"
-            alt=""
+            alt={`${SITE.name} logo`}
             width={36}
             height={36}
             className="h-9 w-9 shrink-0 rounded-[10px] object-contain object-center ring-1 ring-white/10 transition group-hover:ring-blue-400/40"
@@ -440,14 +440,14 @@ function BottomCta({ onDownloadClick }: { onDownloadClick: () => void }) {
 }
 
 function SiteFooter() {
-  const { t } = useLocale()
+  const { t, homePath } = useLocale()
   return (
     <footer className="border-t border-white/[0.06] py-10 text-center">
       <div className={container}>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
           <a
             className="text-zinc-500 hover:text-zinc-200"
-            href="#"
+            href={homePath}
           >
             {t.ui.download}
           </a>
@@ -468,6 +468,17 @@ function SiteFooter() {
             {t.ui.openclawEcosystem}
           </a>
         </div>
+        <p className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-zinc-600">
+          <a className="hover:text-zinc-300" href="/">
+            中文版
+          </a>
+          <span className="text-zinc-700" aria-hidden>
+            ·
+          </span>
+          <a className="hover:text-zinc-300" href="/en/">
+            English
+          </a>
+        </p>
         <p className="mt-5 text-xs text-zinc-600">
           © {new Date().getFullYear()} {SITE.name} — {t.ui.copyrightSuffix}
         </p>
