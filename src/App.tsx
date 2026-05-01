@@ -482,6 +482,16 @@ function SiteFooter() {
         <p className="mt-5 text-xs text-zinc-600">
           © {new Date().getFullYear()} {SITE.name} — {t.ui.copyrightSuffix}
         </p>
+        <p className="mt-2 text-xs text-zinc-600">
+          <a
+            className="hover:text-zinc-300"
+            href="https://beian.miit.gov.cn/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            沪ICP备2025137719号-1
+          </a>
+        </p>
       </div>
     </footer>
   )
