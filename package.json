@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/geo-sync-dates.mjs",
-    "build": "tsc -b && vite build --emptyOutDir",
+    "build": "tsc -b && vite build --emptyOutDir && node scripts/verify-geo-assets.mjs",
     "geo:ping": "node scripts/geo-ping-sitemaps.mjs",
     "deploy:geo": "npm run build && npm run geo:ping",
     "lint": "eslint .",

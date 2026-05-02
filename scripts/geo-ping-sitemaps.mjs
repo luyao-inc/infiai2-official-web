@@ -11,6 +11,22 @@
 const origin = (process.env.GEO_SITE_ORIGIN ?? 'https://infiai.org.cn').replace(/\/$/, '')
 const sitemapUrl = `${origin}/sitemap.xml`
 
+if (process.env.GEO_VERIFY_SITEMAP !== '0') {
+  try {
+    const res = await fetch(sitemapUrl, {
+      redirect: 'follow',
+      headers: { 'user-agent': 'InfiAI-geo-ping/1.0' },
+    })
+    if (!res.ok) {
+      console.warn(`[geo-ping] sitemap GET ${res.status} (expected 2xx): ${sitemapUrl}`)
+    } else {
+      console.log(`[geo-ping] sitemap ok: ${sitemapUrl}`)
+    }
+  } catch (err) {
+    console.warn('[geo-ping] sitemap verify failed:', err)
+  }
+}
+
 const endpoints = [
   `https://www.bing.com/webmaster/ping.aspx?sitemap=${encodeURIComponent(sitemapUrl)}`,
   `https://ssl.bing.com/webmaster/ping.aspx?sitemap=${encodeURIComponent(sitemapUrl)}`,

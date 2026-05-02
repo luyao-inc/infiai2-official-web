@@ -8,4 +8,4 @@ Canonical: https://infiai.org.cn/
 
 Standards: HTML5, Schema.org JSON-LD, llms.txt
 
-Last updated: 2026-05-01 (Asia/Shanghai)
+Last updated: 2026-05-02 (Asia/Shanghai)
