@@ -3,7 +3,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { SITE } from '../content/siteContent'
 import { useLocale } from '../i18n/LocaleProvider'
 import { fetchPublicDownloadVersions, pickDownloadVersion, type DownloadVersion } from '../lib/appVersionApi'
-import { detectClientPlatform, type ClientOS, type ClientPlatform } from '../lib/clientPlatform'
+import {
+  detectClientPlatform,
+  detectClientPlatformHighEntropy,
+  type ClientOS,
+  type ClientPlatform,
+} from '../lib/clientPlatform'
 import { formatBytes } from '../lib/releaseAssets'
 
 type Props = { open: boolean; onClose: () => void; preferredOs?: ClientOS }
@@ -12,7 +17,8 @@ function envDescription(c: ClientPlatform, ui: ReturnType<typeof useLocale>['t']
   if (c.os === 'windows' && c.arch === 'arm64') return ui.envWindowsArm64
   if (c.os === 'windows') return ui.envWindowsX64
   if (c.os === 'mac' && c.arch === 'arm64') return ui.envMacApple
-  if (c.os === 'mac') return ui.envMacIntel
+  if (c.os === 'mac' && c.arch === 'x64') return ui.envMacIntel
+  if (c.os === 'mac') return 'macOS'
   if (c.os === 'ios') return ui.envIOS
   if (c.os === 'android') return ui.envAndroid
   if (c.os === 'linux') return ui.envLinux
@@ -38,7 +44,7 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
   const [err, setErr] = useState(false)
   const [versions, setVersions] = useState<DownloadVersion[]>([])
 
-  const detected = useMemo(() => detectClientPlatform(), [])
+  const [detected, setDetected] = useState<ClientPlatform>(() => detectClientPlatform())
   const client = useMemo(
     (): ClientPlatform =>
       preferredOs ? { os: preferredOs, arch: preferredOs === 'android' ? 'arm64' : detected.arch } : detected,
@@ -50,6 +56,16 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
     if (!versions.length) return { primary: null, others: [] as DownloadVersion[] }
     return pickDownloadVersion(versions, client.os, client.arch)
   }, [versions, client])
+
+  useEffect(() => {
+    let cancelled = false
+    detectClientPlatformHighEntropy().then((platform) => {
+      if (!cancelled) setDetected(platform)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -230,7 +246,8 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
         <p className="mt-6 text-center">
           <a
             className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 underline-offset-4 transition-colors hover:text-blue-300 hover:underline"
-            href={SITE.downloadUrl}
+            href="#platforms"
+            onClick={onClose}
           >
             {ui.downloadViewReleases}
           </a>

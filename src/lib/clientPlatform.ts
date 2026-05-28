@@ -3,6 +3,18 @@ export type ClientArch = 'x64' | 'arm64' | 'unknown'
 
 export type ClientPlatform = { os: ClientOS; arch: ClientArch }
 
+type UserAgentData = {
+  platform?: string
+  getHighEntropyValues?: (hints: string[]) => Promise<{ architecture?: string; platform?: string }>
+}
+
+function normalizeArch(value?: string): ClientArch {
+  const arch = (value || '').toLowerCase()
+  if (/(arm64|aarch64|arm)/i.test(arch)) return 'arm64'
+  if (/(x86_64|x64|amd64|win64|wow64)/i.test(arch)) return 'x64'
+  return 'unknown'
+}
+
 export function detectClientPlatform(): ClientPlatform {
   const ua = navigator.userAgent
   const uaL = ua.toLowerCase()
@@ -15,11 +27,9 @@ export function detectClientPlatform(): ClientPlatform {
   else if (/mac os x|macintosh/i.test(ua) && !/like mac/i.test(ua)) os = 'mac'
   else if (/linux|x11/i.test(ua) && !/android/i.test(ua)) os = 'linux'
 
-  let arch: ClientArch = 'unknown'
-  if (/arm64|aarch64/i.test(uaL)) arch = 'arm64'
-  else if (/x86_64|win64|\bx64\b|amd64|wow64/i.test(uaL)) arch = 'x64'
+  let arch: ClientArch = normalizeArch(uaL)
 
-  const nav = navigator as Navigator & { userAgentData?: { platform: string } }
+  const nav = navigator as Navigator & { userAgentData?: UserAgentData }
   const uad = nav.userAgentData
   if (uad?.platform) {
     const p = uad.platform.toLowerCase()
@@ -31,4 +41,24 @@ export function detectClientPlatform(): ClientPlatform {
   }
 
   return { os, arch }
+}
+
+export async function detectClientPlatformHighEntropy(): Promise<ClientPlatform> {
+  const base = detectClientPlatform()
+  const nav = navigator as Navigator & { userAgentData?: UserAgentData }
+  const highEntropy = await nav.userAgentData?.getHighEntropyValues?.(['architecture', 'platform']).catch(() => null)
+  if (!highEntropy) return base
+
+  let os = base.os
+  const platform = highEntropy.platform?.toLowerCase()
+  if (platform) {
+    if (platform.includes('ios')) os = 'ios'
+    else if (platform.includes('android')) os = 'android'
+    else if (platform.includes('win')) os = 'windows'
+    else if (platform.includes('mac')) os = 'mac'
+    else if (platform.includes('linux')) os = 'linux'
+  }
+
+  const arch = normalizeArch(highEntropy.architecture)
+  return { os, arch: arch === 'unknown' ? base.arch : arch }
 }
