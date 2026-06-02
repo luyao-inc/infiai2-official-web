@@ -101,3 +101,48 @@ body {
 .lx-legal-footer a:hover {
   color: var(--lx-accent);
 }
+
+.lx-legal-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lx-legal-table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.lx-legal-table th,
+.lx-legal-table td {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--lx-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.lx-legal-table th {
+  color: #f8fafc;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lx-legal-table a {
+  color: var(--lx-accent);
+  word-break: break-all;
+}
+
+.lx-legal-table a:hover {
+  text-decoration: underline;
+}
+
+.lx-legal-note {
+  margin: 1rem 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid rgba(103, 232, 249, 0.45);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--lx-muted);
+  font-size: 0.9rem;
+}
