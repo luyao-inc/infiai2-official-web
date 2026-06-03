@@ -11,6 +11,7 @@ export const en: Messages = {
     directExperience: 'Try Now',
     termsOfService: 'Terms of Service',
     privacyPolicy: 'Privacy Policy',
+    contactUs: 'Contact us: info@lingxie.net',
     comingSoon: 'Coming soon',
     navAria: 'Primary navigation',
     langAria: 'Language',

@@ -11,6 +11,7 @@ export const zh: Messages = {
     directExperience: '直接体验',
     termsOfService: '服务条款',
     privacyPolicy: '隐私政策',
+    contactUs: '联系我们：info@lingxie.net',
     comingSoon: '即将上线',
     navAria: '主导航',
     langAria: '语言切换',

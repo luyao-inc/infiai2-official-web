@@ -405,6 +405,9 @@ function SiteFooter() {
       </div>
       <div className="lx-footer-right">
         <div className="flex flex-wrap justify-end gap-x-6 gap-y-2">
+          <a className="hover:text-white" href="mailto:info@lingxie.net">
+            {t.ui.contactUs}
+          </a>
           <a className="hover:text-white" href={locale === 'en' ? '/en/terms/' : '/terms/'}>
             {t.ui.termsOfService}
           </a>
@@ -412,9 +415,20 @@ function SiteFooter() {
             {t.ui.privacyPolicy}
           </a>
         </div>
-        <a className="lx-icp hover:text-white" href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
-          {locale === 'zh' ? '沪ICP备2025137719号-1' : 'ICP 2025137719-1'}
-        </a>
+        <div className="lx-beian-row">
+          <a
+            className="lx-psb hover:text-white"
+            href="https://beian.mps.gov.cn/#/query/webSearch?code=31010402336775"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img className="lx-psb-logo" src="/beian-mps-logo.png" alt="" width={16} height={16} />
+            沪公网安备31010402336775号
+          </a>
+          <a className="lx-icp hover:text-white" href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
+            {locale === 'zh' ? '沪ICP备2025137719号-1' : 'ICP 2025137719-1'}
+          </a>
+        </div>
       </div>
     </footer>
   )

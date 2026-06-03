@@ -28,6 +28,7 @@ export type Messages = {
     directExperience: string
     termsOfService: string
     privacyPolicy: string
+    contactUs: string
     comingSoon: string
     navAria: string
     langAria: string
