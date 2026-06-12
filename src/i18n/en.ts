@@ -7,7 +7,7 @@ export const en: Messages = {
       'Lingxie is a digital avatar interaction platform for bloggers, creators, and domain experts to create a free AI avatar that sounds like them and keeps interacting with fans or customers.',
   },
   ui: {
-    download: 'Download Client',
+    download: 'Download Now',
     directExperience: 'Try Now',
     termsOfService: 'Terms of Service',
     privacyPolicy: 'Privacy Policy',
@@ -19,16 +19,16 @@ export const en: Messages = {
     langEn: 'EN',
     heroIntroAria: 'Lingxie product introduction',
     ctaAria: 'Call to action',
-    universeTitle: 'Lingxie digital avatars amplify your ability and value',
+    universeTitle: 'Use Lingxie digital avatars\nto amplify your ability and value',
     universeSub:
       'A digital avatar is not a rigid AI chatbot. It is another version of you, carrying your knowledge, experience, and personality. It communicates in your way, keeps learning from interaction, and lets your ability and value break through the limits of time and energy.',
     featuresTitle: 'Core Functions',
     featuresSub:
       'Lingxie builds a complete product loop for avatar creation, management, and operation. No technical background is required: get started in minutes and make your avatar easy to use, easy to manage, and able to earn.',
-    startTitle: 'Bring your avatar online quickly',
-    startSub: 'Go from download to monetization and build your own digital avatar fast.',
-    platformsTitle: 'Download Client',
-    platformsSub: 'Desktop and Android builds are available. iOS is in preparation, and the web app is ready to try.',
+    startTitle: 'Bring your avatar online in four steps',
+    startSub: 'From download to monetization, build your own digital avatar in four steps.',
+    platformsTitle: 'Download the right client for you',
+    platformsSub: '',
     faqTitle: 'FAQ',
     faqLead: '',
     bottomCtaTitle: 'Let your digital avatar start working for you',
@@ -92,35 +92,34 @@ export const en: Messages = {
     {
       id: 'persona-management',
       eyebrow: 'Avatar management',
-      title: 'Professional and complete avatar management system',
+      title: 'Professional complete\navatar management system',
       body:
-        'Manage your digital avatar visually with no code. Fine-tune personality, tone, and expression habits, mount 100,000+ general skills, and upload your personal knowledge base.',
+        'Manage your digital avatar visually with no code. Fine-tune its personality, tone, and expression habits, mount 100,000+ general skills with one click, and upload a personal knowledge base. You can also use automation tasks to operate communities and fans automatically or complete specific tasks.',
       bullets: ['Adjust personality, tone, and expression', 'Upload a personal knowledge base', 'Use automation tasks for community and fan operations'],
     },
     {
       id: 'interaction',
       eyebrow: 'Interaction UI',
-      title: 'Simple, familiar interaction interface',
+      title: 'Simple familiar\ninteraction interface',
       body:
-        'Built on a familiar IM-style interface for immersive conversation. It supports one-to-one chats, group chats, voice, text, and multiple interaction modes while preserving natural human conversation.',
+        'Built on the familiar IM product interface for immersive conversation. It supports one-to-one chats, group chats, voice, text, and other communication formats. It enables avatar-to-human, avatar-to-avatar, and human-to-human interactions while preserving the most natural conversation experience.',
       bullets: ['Human-to-avatar, avatar-to-avatar, and human-to-human interaction', 'One-to-one and group chat scenarios', 'Natural voice and text communication'],
     },
     {
       id: 'monetization',
       eyebrow: 'Monetization',
-      title: 'Turn influence into recurring income',
+      title: 'Mature diversified\nmonetization methods',
       body:
-        'Support fan subscriptions to your exclusive avatar, knowledge base subscriptions, and pay-per-consultation. Commerce promotion, ad revenue share, and personal stores will follow.',
+        'Support fan subscriptions to your exclusive avatar, knowledge base subscriptions, and pay-per-consultation. Commerce promotion, ad revenue sharing, personal stores, and more will follow. Turn your influence, knowledge, and experience into recurring income through multiple automatic paths.',
       bullets: ['Exclusive avatar subscriptions', 'Knowledge subscriptions and paid consultations', 'Multiple paths to recurring income'],
     },
   ],
   gettingStarted: {
     steps: [
-      { n: '01', title: 'Download and register', text: 'Download the Lingxie app, or open the web app directly in your browser, then register with a phone number or email.' },
-      { n: '02', title: 'Create your avatar', text: 'Talk to “My Avatar”, or enter the Avatar page to fill in the avatar name and introduction. Your digital avatar is then born.' },
-      { n: '03', title: 'Shape the persona', text: 'Tell the avatar who it is, what it is good at, and how it should speak. Manually tune style, personality, and limits, or generate them with AI.' },
-      { n: '04', title: 'Inject knowledge', text: 'Upload articles, courses, chat records, and trusted material in the Knowledge Base page, and choose specific skills from the Skills page.' },
-      { n: '05', title: 'Publish and share', text: 'Set visibility, monetization method, and price, then publish. Share the avatar card or create a group chat so more people can meet your avatar.' },
+      { n: '01', title: 'Download and register', text: 'Download the Lingxie app, or open the web app directly in your browser. Register with a phone number or email. Then talk to “My Avatar” or enter the Avatar page to fill in your avatar name and introduction. Your digital avatar is born.' },
+      { n: '02', title: 'Shape the persona', text: 'Tell the avatar who it is, what it is good at, and how it should speak. You can manually tune tone, personality traits, and restrictions, or generate them with AI in one click. This step sets the persona foundation for your avatar.' },
+      { n: '03', title: 'Inject knowledge', text: 'In the Knowledge Base page under Avatar, upload your articles, courses, chat records, and other trusted content. The richer the content, the better your avatar understands you. You can also choose specific skills from the Skills page to give your avatar the ability to complete specific operations.' },
+      { n: '04', title: 'Publish and share', text: 'Set the avatar visibility, monetization method, and price, such as monthly subscriptions or pay-per-consultation. After confirming everything, publish with one click and your avatar will start working and earning for you. You can also share your avatar card or create a group chat so more people can see your avatar.' },
     ],
   },
   cases: {
