@@ -27,7 +27,7 @@ export function detectClientPlatform(): ClientPlatform {
   else if (/mac os x|macintosh/i.test(ua) && !/like mac/i.test(ua)) os = 'mac'
   else if (/linux|x11/i.test(ua) && !/android/i.test(ua)) os = 'linux'
 
-  let arch: ClientArch = normalizeArch(uaL)
+  const arch: ClientArch = normalizeArch(uaL)
 
   const nav = navigator as Navigator & { userAgentData?: UserAgentData }
   const uad = nav.userAgentData

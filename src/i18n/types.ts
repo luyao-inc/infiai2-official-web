@@ -12,6 +12,8 @@ export type FeatureItem = {
 
 export type UniverseNode = { label: string; text: string }
 
+export type CaseItem = { role: string; quote: string }
+
 export type PlatformItem = {
   os: 'windows' | 'mac' | 'ios' | 'android'
   title: string
@@ -85,6 +87,11 @@ export type Messages = {
   coreFeatures: FeatureItem[]
   gettingStarted: {
     steps: { n: string; title: string; text: string }[]
+  }
+  cases: {
+    title: string
+    sub: string
+    items: CaseItem[]
   }
   platforms: PlatformItem[]
   trust: {

@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { DownloadModal } from './components/DownloadModal'
-import { GEO_PAGE_CONTENT_DATE_ISO } from './content/geoPageDate.generated'
 import { SITE } from './content/siteContent'
 import { useLocale } from './i18n/LocaleProvider'
 import type { PlatformItem } from './i18n/types'
@@ -121,6 +120,7 @@ function HeroSection({ onDownloadClick }: { onDownloadClick: () => void }) {
   const { t } = useLocale()
   return (
     <section
+      id="home"
       className="lx-story-section lx-story-hero relative"
       aria-label={t.ui.heroIntroAria}
     >
@@ -160,12 +160,15 @@ function HeroSection({ onDownloadClick }: { onDownloadClick: () => void }) {
 
 function UniverseSection() {
   const { t } = useLocale()
+  const universeTitleLines = t.ui.universeTitle.split('\n')
   return (
     <section id="universe" className="lx-story-section lx-story-universe relative border-t border-white/[0.08]">
       <div className={`${container} grid min-h-full items-center gap-10 py-10 lg:grid-cols-[0.82fr_1.18fr]`}>
-        <div className="relative z-10 max-w-3xl">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-300">Scene 01</p>
-          <h2 className={sectionTitle}>{t.ui.universeTitle}</h2>
+        <div className="lx-universe-copy relative z-10 max-w-3xl">
+          <h2 className="lx-universe-title">
+            <span>{universeTitleLines[0]}</span>
+            <strong>{universeTitleLines.slice(1).join(' ')}</strong>
+          </h2>
           <p className={sectionSub}>{t.ui.universeSub}</p>
         </div>
         <div className="lx-constellation" aria-hidden="true">
@@ -188,12 +191,10 @@ function UniverseSection() {
 function FeaturesSection() {
   const { t } = useLocale()
   const primaryFeatures = t.coreFeatures.slice(0, 3)
-  const secondaryFeatures = t.coreFeatures.slice(3)
   return (
     <section id="features" className="lx-story-section lx-story-features border-t border-white/[0.08]">
       <div className={`${container} grid min-h-full items-center gap-8 py-10 lg:grid-cols-[0.72fr_1.28fr]`}>
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-300">Scene 02</p>
           <div>
             <h2 className={sectionTitle}>{t.ui.featuresTitle}</h2>
             <p className={sectionSub}>{t.ui.featuresSub}</p>
@@ -206,17 +207,10 @@ function FeaturesSection() {
               className="lx-feature"
               style={{ '--delay': `${index * 80}ms` } as CSSProperties}
             >
-              <div className="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">{feature.eyebrow}</div>
-              <h3 className="mt-4 text-2xl font-bold tracking-tight text-white">{feature.title}</h3>
+              <h3 className="whitespace-pre-line text-center text-2xl font-bold tracking-tight text-white">{feature.title}</h3>
               <p className="mt-4 text-sm leading-7 text-slate-400">{feature.body}</p>
-              <p className="mt-5 text-xs font-bold text-cyan-100/80">{feature.bullets[0]}</p>
             </article>
           ))}
-          <div className="lx-feature-chips">
-            {secondaryFeatures.map((feature) => (
-              <span key={feature.id}>{feature.title}</span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
@@ -227,9 +221,8 @@ function StartSection() {
   const { t } = useLocale()
   return (
     <section id="start" className="lx-story-section lx-story-start border-t border-white/[0.08]">
-      <div className={`${container} min-h-full py-10`}>
+      <div className={`${container} flex min-h-full flex-col justify-center py-10`}>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-300">Scene 03</p>
           <h2 className={sectionTitle}>{t.ui.startTitle}</h2>
           <p className={`${sectionSub} mx-auto`}>{t.ui.startSub}</p>
         </div>
@@ -237,10 +230,35 @@ function StartSection() {
           {t.gettingStarted.steps.map((step) => (
             <article key={step.n} className="lx-launch-step">
               <span className="text-xs font-black text-cyan-300">{step.n}</span>
-              <h3 className="mt-5 text-lg font-bold text-white">{step.title}</h3>
+              <h3 className="mt-5 text-center text-lg font-bold text-white">{step.title}</h3>
               <p className="mt-3 text-sm leading-7 text-slate-500">{step.text}</p>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function CasesSection() {
+  const { t } = useLocale()
+  const loopItems = [...t.cases.items, ...t.cases.items]
+  return (
+    <section id="cases" className="lx-story-section lx-story-cases border-t border-white/[0.08]">
+      <div className={`${container} flex min-h-full flex-col justify-center py-10`}>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className={sectionTitle}>{t.cases.title}</h2>
+          <p className={`${sectionSub} mx-auto`}>{t.cases.sub}</p>
+        </div>
+        <div className="lx-case-marquee" aria-label={t.cases.title}>
+          <div className="lx-case-track">
+            {loopItems.map((item, index) => (
+              <article className="lx-case-card" key={`${item.role}-${index}`} aria-hidden={index >= t.cases.items.length}>
+                <span>{item.role}</span>
+                <p>{item.quote}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -251,17 +269,13 @@ function PlatformsSection({ onDownloadClick }: { onDownloadClick: (preferredOs?:
   const { t } = useLocale()
   return (
     <section id="platforms" className="lx-story-section lx-story-platforms border-t border-white/[0.08]">
-      <div className={`${container} flex min-h-full items-center py-10`}>
+      <div className={`${container} lx-platform-page py-10`}>
         <div className="lx-platform-console">
           <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-300">Scene 04</p>
               <h2 className={sectionTitle}>{t.ui.platformsTitle}</h2>
-              <p className={sectionSub}>{t.ui.platformsSub}</p>
+              {t.ui.platformsSub && <p className={sectionSub}>{t.ui.platformsSub}</p>}
             </div>
-            <button type="button" className={primaryButton} onClick={() => onDownloadClick()}>
-              {t.ui.download}
-            </button>
           </div>
           <div className="lx-platform-grid">
             {t.platforms.map((platform) => {
@@ -298,22 +312,7 @@ function PlatformsSection({ onDownloadClick }: { onDownloadClick: (preferredOs?:
             })}
           </div>
         </div>
-      </div>
-    </section>
-  )
-}
-
-function TrustSection() {
-  const { t } = useLocale()
-  return (
-    <section className="lx-story-section flex items-center border-t border-white/[0.08] text-center">
-      <div className={container}>
-        <h2 className="mx-auto max-w-4xl text-3xl font-black tracking-tight text-white sm:text-5xl">
-          {t.trust.headline}
-        </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-400 sm:text-lg">
-          {t.trust.body}
-        </p>
+        <SiteFooter />
       </div>
     </section>
   )
@@ -329,9 +328,8 @@ function FAQSection() {
     <section id="faq" className="lx-story-section lx-story-faq flex items-center border-t border-white/[0.08]">
       <div className={`${container} lx-faq-layout grid min-h-full items-center gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8`}>
         <div className="lx-faq-aside">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-300">Scene 06</p>
           <h2 className={`${sectionTitle} lx-faq-title`}>{t.ui.faqTitle}</h2>
-          <p className="lx-faq-lead">{t.ui.faqLead}</p>
+          {t.ui.faqLead && <p className="lx-faq-lead">{t.ui.faqLead}</p>}
           <div className="lx-faq-list">
             {visibleFaqs.map((item, index) => (
               <button
@@ -356,37 +354,6 @@ function FAQSection() {
   )
 }
 
-function FinalSection({ onDownloadClick }: { onDownloadClick: () => void }) {
-  return (
-    <section className="lx-story-section lx-story-final flex items-center border-t border-white/[0.08] py-8">
-      <div className={`${container} lx-final-layout`}>
-        <BottomCta onDownloadClick={onDownloadClick} />
-        <SiteFooter />
-      </div>
-    </section>
-  )
-}
-
-function BottomCta({ onDownloadClick }: { onDownloadClick: () => void }) {
-  const { t } = useLocale()
-  return (
-    <div className="text-center" aria-label={t.ui.ctaAria}>
-      <div className="rounded-[2.25rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(79,115,255,0.2),rgba(35,213,255,0.08),rgba(124,60,255,0.16))] p-6 sm:p-8">
-        <h2 className="text-3xl font-black tracking-tight text-white max-md:text-2xl sm:text-4xl">{t.ui.bottomCtaTitle}</h2>
-        <p className="mt-5 text-slate-300">{t.ui.bottomCtaSub}</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <button type="button" className={primaryButton} onClick={onDownloadClick}>
-            {t.ui.download}
-          </button>
-          <a className={ghostButton} href={SITE.appUrl} target="_blank" rel="noreferrer">
-            {t.ui.directExperience}
-          </a>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function SiteFooter() {
   const { t, homePath, locale } = useLocale()
   return (
@@ -394,10 +361,6 @@ function SiteFooter() {
       <div className="lx-footer-left">
         <a className="text-base font-black text-slate-300 hover:text-white" href={homePath}>{t.hero.headline}</a>
         <div className="mt-3 space-y-1">
-          <p>
-            <span>{t.ui.pageUpdatedPrefix}</span>{' '}
-            <time dateTime={GEO_PAGE_CONTENT_DATE_ISO}>{GEO_PAGE_CONTENT_DATE_ISO}</time>
-          </p>
           <p>
             © {new Date().getFullYear()} {t.hero.headline} - {t.ui.copyrightSuffix}
           </p>
@@ -517,10 +480,9 @@ function App() {
         <UniverseSection />
         <FeaturesSection />
         <StartSection />
-        <PlatformsSection onDownloadClick={openDownload} />
-        <TrustSection />
+        <CasesSection />
         <FAQSection />
-        <FinalSection onDownloadClick={() => openDownload()} />
+        <PlatformsSection onDownloadClick={openDownload} />
       </main>
       <DownloadModal open={downloadOpen} onClose={closeDownload} preferredOs={downloadPreferredOs} />
     </div>

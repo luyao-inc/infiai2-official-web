@@ -11,17 +11,17 @@
 ## Core identity
 
 - Brand name: 灵谐
-- Slogan: 你的分身，无限可能
-- Category: AI social digital-avatar platform
-- Positioning: create digital personas, receive relationships, build knowledge, expand influence
+- Slogan: 3 分钟即可免费创建一个像你，懂你的数字分身
+- Category: digital avatar interaction platform
+- Positioning: create digital avatars that carry your knowledge, experience, and personality and interact with fans or customers 24/7
 
 ## Product capabilities
 
-- AI social discovery for people, personas, public groups, and knowledge.
-- Digital persona hosting for offline or always-on relationship reception.
-- Knowledge bases for documents, FAQs, professional material, shared knowledge, and subscribed knowledge.
-- Skill extensions for search, content handling, and workflow capabilities.
-- AI social cards for QR-code based relationship growth.
+- Professional no-code avatar management with fine-grained personality, tone, and expression settings.
+- Familiar IM-style interaction for one-to-one chats, group chats, voice, and text.
+- Personal knowledge bases for articles, courses, chat records, and other trusted material.
+- Skill extensions and automation tasks for community operations and specific workflows.
+- Monetization through avatar subscriptions, knowledge subscriptions, and paid consultations.
 
 ## Official software distribution
 
@@ -38,18 +38,18 @@
 - Windows: available through desktop installer releases.
 - macOS: available through desktop installer releases.
 - iOS: coming soon.
-- Android: coming soon.
+- Android: available when a public APK package is published.
 
 ## Frequently asked questions (canonical answers)
 
 Q: What is Lingxie and who is it for?
-A: Lingxie (https://lingxie.net) is an AI social digital-avatar platform for creators and professionals. Product entry: https://app.lingxie.net.
+A: Lingxie (https://lingxie.net) is a digital avatar interaction platform for bloggers, creators, consultants, teachers, experts, and brand owners. Product entry: https://app.lingxie.net.
 
-Q: How is it different from ChatGPT?
-A: Lingxie personas bind identity, knowledge bases, skills, and social graphs; they keep receiving relationships offline and interact in discovery, groups, and AI social cards—not one-off Q&A only.
+Q: What do I need to prepare to create a usable digital avatar?
+A: No preparation is required. Configure basic personality and tone in a few minutes, then upload articles, courses, chat records, or other trusted material to help the avatar understand you better.
 
-Q: Windows, Mac, or mobile?
-A: Windows/macOS desktop builds are available from https://lingxie.net/#platforms; Android downloads appear when a public package is published; web app: https://app.lingxie.net. Native iOS is coming soon.
+Q: Are my uploaded materials and data safe?
+A: Data is encrypted in storage, and avatar ownership and data sovereignty belong to the user. Knowledge-base and interaction data are not used for third-party purposes unless authorized by the user.
 
-Q: What happens when I am offline?
-A: With hosting on, the persona greets connections, replies using your knowledge base, and follows policies you set; you can adjust or disable hosting anytime.
+Q: What does it cost to use the platform?
+A: New users can try core functions for free. Costs mainly include membership plans, avatar revenue share, and large-model compute paid from a recharged compute balance.

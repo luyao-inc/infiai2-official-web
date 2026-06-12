@@ -142,13 +142,11 @@
       radial-gradient(circle at 82% 64%, rgba(34, 211, 238, 0.16), transparent 32%);
   }
 
-  .lx-story-final {
+  .lx-story-cases {
     background:
-      radial-gradient(circle at 32% 35%, rgba(34, 211, 238, 0.13), transparent 32%),
-      radial-gradient(circle at 78% 66%, rgba(79, 115, 255, 0.16), transparent 34%);
-    min-height: calc(100vh - 88px);
-    height: calc(100vh - 88px);
-    overflow: hidden;
+      radial-gradient(circle at 20% 28%, rgba(34, 211, 238, 0.16), transparent 34%),
+      radial-gradient(circle at 76% 58%, rgba(124, 58, 237, 0.18), transparent 36%),
+      linear-gradient(180deg, rgba(255,255,255,0.014), transparent);
   }
 
   .lx-story-faq {
@@ -342,6 +340,33 @@
     overflow: hidden;
   }
 
+  .lx-universe-title {
+    max-width: 34rem;
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .lx-universe-title span,
+  .lx-universe-title strong {
+    display: block;
+  }
+
+  .lx-universe-title span {
+    color: rgb(125, 211, 252);
+    font-size: clamp(1.65rem, 3.2vw, 2.9rem);
+    font-weight: 900;
+  }
+
+  .lx-universe-title strong {
+    margin-top: 0.8rem;
+    max-width: 33rem;
+    background: linear-gradient(100deg, #ffffff 8%, #bfdbfe 48%, #67e8f9 100%);
+    background-clip: text;
+    color: transparent;
+    font-size: clamp(2.55rem, 5vw, 4.8rem);
+    font-weight: 950;
+  }
+
   .lx-constellation::before,
   .lx-constellation::after {
     content: '';
@@ -366,11 +391,13 @@
     width: 172px;
     min-height: 112px;
     align-content: center;
+    justify-items: center;
     gap: 0.5rem;
     border: 1px solid rgba(255,255,255,0.14);
     border-radius: 28px;
     background: rgba(4, 10, 22, 0.78);
     padding: 1rem;
+    text-align: center;
     box-shadow: 0 0 34px rgba(34, 211, 238, 0.12);
     backdrop-filter: blur(18px);
     animation: lx-node-drift 5.5s ease-in-out infinite;
@@ -418,7 +445,7 @@
   .lx-feature {
     position: relative;
     z-index: 1;
-    min-height: 320px;
+    min-height: 370px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 28px;
     background:
@@ -473,15 +500,15 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
-    margin-top: min(10vh, 5rem);
+    margin-top: clamp(2rem, 6vh, 3.6rem);
   }
 
   .lx-launch-rail::before {
     content: '';
     position: absolute;
-    left: 6%;
-    right: 6%;
-    top: 52%;
+    left: 8%;
+    right: 8%;
+    top: 50%;
     height: 2px;
     background: linear-gradient(90deg, transparent, rgba(34,211,238,0.75), rgba(124,58,237,0.62), transparent);
     box-shadow: 0 0 28px rgba(34,211,238,0.5);
@@ -490,12 +517,21 @@
   .lx-launch-step {
     position: relative;
     z-index: 1;
-    min-height: 210px;
+    min-height: 300px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
+    border-radius: 26px;
     background: rgba(3, 8, 20, 0.76);
-    padding: 1.5rem;
+    padding: 1.15rem;
     backdrop-filter: blur(18px);
+  }
+
+  .lx-launch-step h3 {
+    line-height: 1.25;
+  }
+
+  .lx-launch-step p {
+    font-size: 0.78rem;
+    line-height: 1.65;
   }
 
   .lx-launch-step::before {
@@ -523,6 +559,14 @@
     backdrop-filter: blur(22px);
   }
 
+  .lx-platform-page {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-height: 100%;
+    align-items: center;
+    row-gap: clamp(1.5rem, 4vh, 2.4rem);
+  }
+
   .lx-platform-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -544,12 +588,57 @@
     border-color: rgba(125, 211, 252, 0.38);
   }
 
-  .lx-final-layout {
+  .lx-case-marquee {
+    position: relative;
+    width: 100%;
+    margin-top: clamp(2rem, 6vh, 3.5rem);
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+
+  .lx-case-track {
     display: flex;
-    min-height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
+    width: max-content;
+    gap: 1rem;
+    padding-block: 0.6rem;
+    animation: lx-case-marquee 58s linear infinite;
+  }
+
+  .lx-case-marquee:hover .lx-case-track {
+    animation-play-state: paused;
+  }
+
+  .lx-case-card {
+    width: clamp(260px, 25vw, 340px);
+    min-height: 250px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(34, 211, 238, 0.14), transparent 38%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.022)),
+      rgba(2, 8, 20, 0.82);
+    padding: 1.35rem;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(18px);
+  }
+
+  .lx-case-card span {
+    display: inline-flex;
+    border: 1px solid rgba(125, 211, 252, 0.22);
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.08);
+    padding: 0.45rem 0.75rem;
+    color: rgb(165, 243, 252);
+    font-size: 0.78rem;
+    font-weight: 900;
+  }
+
+  .lx-case-card p {
+    margin-top: 1.1rem;
+    color: rgba(226, 232, 240, 0.82);
+    font-size: 0.9rem;
+    line-height: 1.8;
   }
 
   .lx-story-faq .lx-faq-title {
@@ -700,6 +789,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 2rem;
+    margin-top: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding-top: 1.25rem;
     text-align: left;
@@ -842,6 +932,12 @@
   }
 }
 
+@keyframes lx-case-marquee {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
 @keyframes lx-scan {
   0%,
   100% {
@@ -868,12 +964,6 @@
     min-height: auto;
     overflow: visible;
     scroll-snap-align: none;
-  }
-
-  .lx-story-final {
-    min-height: auto;
-    height: auto;
-    overflow: visible;
   }
 
   .lx-faq-tab:hover,
@@ -955,6 +1045,30 @@
 
   .lx-feature-chips {
     justify-content: flex-start;
+  }
+
+  .lx-case-marquee {
+    overflow-x: auto;
+    mask-image: none;
+    scrollbar-width: none;
+  }
+
+  .lx-case-marquee::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lx-case-track {
+    width: max-content;
+    animation: none;
+  }
+
+  .lx-case-track .lx-case-card:nth-child(n + 10) {
+    display: none;
+  }
+
+  .lx-case-card {
+    width: min(82vw, 340px);
+    min-height: 230px;
   }
 
   .lx-launch-step::before {
