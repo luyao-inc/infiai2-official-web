@@ -45,7 +45,7 @@ type PageVersionsData = {
 
 const platformTitles: Record<DownloadVersion['os'], string> = {
   windows: 'Windows',
-  mac: 'macOS',
+  mac: 'MacOS',
   android: 'Android',
 }
 

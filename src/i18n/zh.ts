@@ -2,9 +2,9 @@ import type { Messages } from './types'
 
 export const zh: Messages = {
   meta: {
-    title: '灵 谐 - 数字分身交互平台',
+    title: '灵 谐 - 数字分身互动平台',
     description:
-      '灵谐是数字分身交互平台，帮助博主、创作者和各领域专家免费创建像你、懂你的数字分身，持续与粉丝或客户互动。',
+      '灵谐是数字分身互动平台，帮助博主、创作者和各领域专家免费创建像你又懂你的数字分身，持续与粉丝或客户互动。',
   },
   ui: {
     download: '立即下载',
@@ -34,7 +34,7 @@ export const zh: Messages = {
     bottomCtaTitle: '让你的数字分身开始为你工作',
     bottomCtaSub: '下载灵谐客户端，或直接进入网页版创建你的专属分身。',
     pageUpdatedPrefix: '本页主要内容更新于',
-    copyrightSuffix: '数字分身交互平台',
+    copyrightSuffix: '数字分身互动平台',
     downloadModalTitle: '选择你的体验方式',
     downloadModalSub: '灵谐会根据当前设备推荐最合适的入口。',
     downloadReleased: '发布于 {date}',
@@ -51,8 +51,8 @@ export const zh: Messages = {
     mobileComingSoonBody: 'iOS 客户端正在准备中。你可以先直接体验网页版，或使用 Android 安装包。',
     envWindowsX64: 'Windows（x64）',
     envWindowsArm64: 'Windows（ARM64）',
-    envMacApple: 'macOS（Apple 芯片）',
-    envMacIntel: 'macOS（Intel）',
+    envMacApple: 'MacOS（Apple 芯片）',
+    envMacIntel: 'MacOS（Intel）',
     envIOS: 'iOS',
     envAndroid: 'Android',
     envLinux: 'Linux',
@@ -68,13 +68,13 @@ export const zh: Messages = {
     { label: '下载客户端', href: '#platforms' },
   ],
   hero: {
-    badge: '数字分身交互平台',
+    badge: '数字分身互动平台',
     headline: '灵 谐',
-    slogan: '3 分钟即可免费创建一个像你，懂你的数字分身。',
+    slogan: '1 分钟即可免费创建一个\n像你又懂你的数字分身',
     sub:
       '7*24 小时与你的粉丝或客户互动，提升你的影响力并持续为你创造价值。尤其适合博主、创作者和各领域专家。',
     metrics: [
-      { value: '3 min', label: '免费创建分身' },
+      { value: '1 min', label: '免费创建分身' },
       { value: '7*24', label: '持续互动' },
       { value: 'AI', label: '放大影响力' },
     ],
@@ -139,7 +139,7 @@ export const zh: Messages = {
   },
   platforms: [
     { os: 'windows', title: 'Windows', status: '可下载', body: '适合完整桌面体验、持续运行和托管配置。' },
-    { os: 'mac', title: 'macOS', status: '可下载', body: '支持 Apple 芯片与 Intel 设备，适合日常创作与管理。' },
+    { os: 'mac', title: 'MacOS', status: '可下载', body: '支持 Apple 芯片与 Intel 设备，适合日常创作与管理。' },
     { os: 'ios', title: 'iOS', status: '即将上线', body: '移动端客户端正在准备中，可先体验网页版。' },
     { os: 'android', title: 'Android', status: '可下载', body: '支持主流 Android 手机，下载 APK 安装后即可登录使用。' },
   ],
@@ -155,7 +155,7 @@ export const zh: Messages = {
   },
   faqs: [
     {
-      q: '创建一个能用的数字分身需要准备什么？',
+      q: '创建数字分身需要准备什么？',
       a:
         '您无需任何准备，只用几分钟简单配置分身的基础性格、语气等即可初步上线。如果需要分身更深入地理解您，可以在分身“知识库”中上传你希望分身获取的内容。没有固定格式要求，文字内容最好，如文章、课程内容、聊天记录等均可，视频 / 语音也都支持。内容越丰富，分身越懂你。',
     },
@@ -165,14 +165,14 @@ export const zh: Messages = {
         '你的数据全程加密存储，分身所有权和数据主权完全归属于你。数据仅用于为您和您的分身更好地服务。除非经您本人授权，我们不会将你的知识库和交互数据用于任何第三方用途，你也可以随时删除您上传的资料和数据。',
     },
     {
-      q: '分身在回答时出错了怎么办？能调整它吗？',
+      q: '我可以随时调整我的分身吗？',
       a:
         '你的分身严格遵循你设定的知识边界和风格准则，所有回复可追溯。你可以随时查看交互记录，持续调校；也能对分身的性格、语气、表达习惯进行精细化微调，每次调整实时生效，确保言行始终在你掌控之中。',
     },
     {
-      q: '使用平台有什么成本吗？',
+      q: '我怎么用我的分身赚钱？',
       a:
-        '新用户可以免费试用平台的核心功能，平台还会不定期推出各类赠送和补贴活动。平台成本主要包括会员套餐和分身收入分成：不同会员套餐对应不同功能和权益；分身定价和收入由用户占绝对主导权，当分身获得收入时，平台会收取一小部分分成。此外分身使用时会产生大模型算力成本，由用户向平台充值的算力余额弹性支付。',
+        '你的分身可以设置付费订阅功能，让粉丝为专属互动付费；也可以开启按次咨询，针对单次问答收费；还可以将细分知识库设为付费解锁。所有定价由你决定，收益分配你占绝对主导。后续还将陆续开放商单推广、广告分成和自有商品带货，让你的影响力和专业知识持续转化为被动收入。',
     },
   ],
 }

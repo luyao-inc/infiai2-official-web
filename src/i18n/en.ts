@@ -2,9 +2,9 @@ import type { Messages } from './types'
 
 export const en: Messages = {
   meta: {
-    title: 'Lingxie - Digital Avatar Interaction Platform',
+    title: 'Lingxie - Interactive Digital Avatar Platform',
     description:
-      'Lingxie is a digital avatar interaction platform for bloggers, creators, and domain experts to create a free AI avatar that sounds like them and keeps interacting with fans or customers.',
+      'Lingxie is an interactive digital avatar platform for bloggers, creators, and domain experts to create a free AI avatar that sounds like them and keeps interacting with fans or customers.',
   },
   ui: {
     download: 'Download Now',
@@ -34,7 +34,7 @@ export const en: Messages = {
     bottomCtaTitle: 'Let your digital avatar start working for you',
     bottomCtaSub: 'Download the Lingxie client, or enter the web app to create your own avatar.',
     pageUpdatedPrefix: 'Main page content last updated',
-    copyrightSuffix: 'Digital Avatar Interaction Platform',
+    copyrightSuffix: 'Interactive Digital Avatar Platform',
     downloadModalTitle: 'Choose your experience',
     downloadModalSub: 'Lingxie recommends the best entry for your current device.',
     downloadReleased: 'Released on {date}',
@@ -51,8 +51,8 @@ export const en: Messages = {
     mobileComingSoonBody: 'The iOS client is in preparation. Try the web app first, or install the Android APK.',
     envWindowsX64: 'Windows (x64)',
     envWindowsArm64: 'Windows (ARM64)',
-    envMacApple: 'macOS (Apple Silicon)',
-    envMacIntel: 'macOS (Intel)',
+    envMacApple: 'MacOS (Apple Silicon)',
+    envMacIntel: 'MacOS (Intel)',
     envIOS: 'iOS',
     envAndroid: 'Android',
     envLinux: 'Linux',
@@ -68,13 +68,13 @@ export const en: Messages = {
     { label: 'Download Client', href: '#platforms' },
   ],
   hero: {
-    badge: 'Digital avatar interaction platform',
+    badge: 'Interactive digital avatar platform',
     headline: 'Lingxie',
-    slogan: 'Create a free digital avatar that sounds like you in 3 minutes.',
+    slogan: 'Create a free digital avatar that sounds like you in 1 minute',
     sub:
       'Interact with your fans or customers 24/7, grow your influence, and keep creating value. Especially useful for bloggers, creators, and experts across fields.',
     metrics: [
-      { value: '3 min', label: 'Create for free' },
+      { value: '1 min', label: 'Create for free' },
       { value: '24/7', label: 'Always-on interaction' },
       { value: 'AI', label: 'Amplify influence' },
     ],
@@ -139,7 +139,7 @@ export const en: Messages = {
   },
   platforms: [
     { os: 'windows', title: 'Windows', status: 'Available', body: 'Best for full desktop workflows and continuous hosting setup.' },
-    { os: 'mac', title: 'macOS', status: 'Available', body: 'Supports Apple Silicon and Intel devices for daily creation and management.' },
+    { os: 'mac', title: 'MacOS', status: 'Available', body: 'Supports Apple Silicon and Intel devices for daily creation and management.' },
     { os: 'ios', title: 'iOS', status: 'Coming soon', body: 'The mobile client is in preparation. Try the web app first.' },
     { os: 'android', title: 'Android', status: 'Available', body: 'Install the APK on supported Android phones and sign in to get started.' },
   ],
@@ -155,7 +155,7 @@ export const en: Messages = {
   },
   faqs: [
     {
-      q: 'What do I need to prepare to create a usable digital avatar?',
+      q: 'What do I need to prepare to create a digital avatar?',
       a:
         'You do not need any preparation. In a few minutes, you can configure basic personality and tone and bring an avatar online. If you want it to understand you more deeply, upload material in the avatar Knowledge Base. There is no fixed format; text is best, such as articles, courses, and chat records, while video and voice are also supported. The richer the content, the better the avatar understands you.',
     },
@@ -165,14 +165,14 @@ export const en: Messages = {
         'Your data is encrypted throughout storage, and avatar ownership and data sovereignty belong entirely to you. The data is used only to better serve you and your avatar. Unless you authorize it, we will not use your knowledge base or interaction data for any third-party purpose, and you can delete uploaded materials and data at any time.',
     },
     {
-      q: 'What if the avatar answers incorrectly? Can I adjust it?',
+      q: 'Can I adjust my avatar at any time?',
       a:
         'Your avatar follows the knowledge boundaries and style rules you set, and replies are traceable. You can review interaction records and keep tuning it. You can also fine-tune personality, tone, and expression habits, with every change taking effect immediately, so its behavior stays under your control.',
     },
     {
-      q: 'What does it cost to use the platform?',
+      q: 'How can I make money with my avatar?',
       a:
-        'New users can try the core platform functions for free, and the platform may provide gifts and subsidies from time to time. Costs mainly include membership plans and avatar revenue share: different plans provide different functions and benefits; avatar pricing and income are primarily controlled by the user, and the platform takes a small share when an avatar earns income. Avatar usage also consumes large-model compute, paid flexibly from the compute balance you recharge.',
+        'Your avatar can enable paid subscriptions so fans pay for exclusive interaction; you can also enable pay-per-consultation for single Q&A sessions, or set segmented knowledge bases as paid unlocks. You decide all pricing, and you take the leading share of revenue. Commerce promotion, ad revenue sharing, and owned-product commerce will be added later, helping your influence and expertise continuously turn into passive income.',
     },
   ],
 }

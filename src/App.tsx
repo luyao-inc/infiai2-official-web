@@ -134,7 +134,7 @@ function HeroSection({ onDownloadClick }: { onDownloadClick: () => void }) {
             <h1 className="mt-6 text-5xl font-black tracking-tight text-white max-md:mt-5 max-md:text-4xl sm:text-6xl lg:mt-5 lg:text-6xl xl:text-7xl">
               {t.hero.headline}
             </h1>
-            <p className="mt-4 text-2xl font-bold text-transparent bg-clip-text bg-[linear-gradient(100deg,#ffffff,#7dd3fc,#a78bfa)] max-md:text-[1.7rem] sm:text-3xl lg:text-[2rem] xl:text-3xl">
+            <p className="mt-4 whitespace-pre-line text-2xl font-bold text-transparent bg-clip-text bg-[linear-gradient(100deg,#ffffff,#7dd3fc,#a78bfa)] max-md:text-[1.7rem] sm:text-3xl lg:text-[2rem] xl:text-3xl">
               {t.hero.slogan}
             </p>
             <p className="mt-5 max-w-xl text-base leading-8 text-slate-400 max-md:text-sm max-md:leading-7 lg:max-w-lg">

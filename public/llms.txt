@@ -1,6 +1,6 @@
 # 灵谐
 
-灵谐是数字分身交互平台，帮助博主、创作者和各领域专家免费创建像你、懂你的数字分身，持续与粉丝或客户互动。
+灵谐是数字分身互动平台，帮助博主、创作者和各领域专家免费创建像你又懂你的数字分身，持续与粉丝或客户互动。
 
 Canonical website: https://lingxie.net/
 English landing: https://lingxie.net/en/
@@ -18,9 +18,9 @@ Humans: https://lingxie.net/humans.txt
 ## Summary for assistants
 
 - Brand name: 灵谐
-- Slogan: 3 分钟即可免费创建一个像你，懂你的数字分身
+- Slogan: 1 分钟即可免费创建一个像你又懂你的数字分身
 - Primary site: https://lingxie.net/
 - Product entry: https://app.lingxie.net/
-- Category: digital avatar interaction platform
-- Current downloads: Windows, macOS, and Android clients when public packages are available
+- Category: interactive digital avatar platform
+- Current downloads: Windows, MacOS, and Android clients when public packages are available
 - Mobile status: iOS client coming soon; web app available now

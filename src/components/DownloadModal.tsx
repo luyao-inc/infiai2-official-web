@@ -18,7 +18,7 @@ function envDescription(c: ClientPlatform, ui: ReturnType<typeof useLocale>['t']
   if (c.os === 'windows') return ui.envWindowsX64
   if (c.os === 'mac' && c.arch === 'arm64') return ui.envMacApple
   if (c.os === 'mac' && c.arch === 'x64') return ui.envMacIntel
-  if (c.os === 'mac') return 'macOS'
+  if (c.os === 'mac') return 'MacOS'
   if (c.os === 'ios') return ui.envIOS
   if (c.os === 'android') return ui.envAndroid
   if (c.os === 'linux') return ui.envLinux

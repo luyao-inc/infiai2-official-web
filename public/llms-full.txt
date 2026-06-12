@@ -11,9 +11,9 @@
 ## Core identity
 
 - Brand name: 灵谐
-- Slogan: 3 分钟即可免费创建一个像你，懂你的数字分身
-- Category: digital avatar interaction platform
-- Positioning: create digital avatars that carry your knowledge, experience, and personality and interact with fans or customers 24/7
+- Slogan: 1 分钟即可免费创建一个像你又懂你的数字分身
+- Category: interactive digital avatar platform
+- Positioning: create a free digital avatar that sounds like you in 1 minute, carries your knowledge, experience, and personality, and interacts with fans or customers 24/7
 
 ## Product capabilities
 
@@ -36,7 +36,7 @@
 ## Platform status
 
 - Windows: available through desktop installer releases.
-- macOS: available through desktop installer releases.
+- MacOS: available through desktop installer releases.
 - iOS: coming soon.
 - Android: available when a public APK package is published.
 
@@ -45,11 +45,14 @@
 Q: What is Lingxie and who is it for?
 A: Lingxie (https://lingxie.net) is a digital avatar interaction platform for bloggers, creators, consultants, teachers, experts, and brand owners. Product entry: https://app.lingxie.net.
 
-Q: What do I need to prepare to create a usable digital avatar?
+Q: What do I need to prepare to create a digital avatar?
 A: No preparation is required. Configure basic personality and tone in a few minutes, then upload articles, courses, chat records, or other trusted material to help the avatar understand you better.
 
 Q: Are my uploaded materials and data safe?
 A: Data is encrypted in storage, and avatar ownership and data sovereignty belong to the user. Knowledge-base and interaction data are not used for third-party purposes unless authorized by the user.
 
-Q: What does it cost to use the platform?
-A: New users can try core functions for free. Costs mainly include membership plans, avatar revenue share, and large-model compute paid from a recharged compute balance.
+Q: Can I adjust my avatar at any time?
+A: Your avatar follows the knowledge boundaries and style rules you set, and replies are traceable. You can review records and fine-tune personality, tone, and expression habits at any time.
+
+Q: How can I make money with my avatar?
+A: Your avatar can enable paid subscriptions so fans pay for exclusive interaction; you can also enable pay-per-consultation for single Q&A sessions, or set segmented knowledge bases as paid unlocks. You decide all pricing, and you take the leading share of revenue. Commerce promotion, ad revenue sharing, and owned-product commerce will be added later, helping your influence and expertise continuously turn into passive income.

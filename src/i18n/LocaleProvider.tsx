@@ -183,7 +183,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       '@type': 'SoftwareApplication',
       name: t.hero.headline,
       applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Windows, macOS, iOS, Android',
+      operatingSystem: 'Windows, MacOS, iOS, Android',
       url: softwareLanding,
       downloadUrl: SITE.downloadUrl,
       description: t.meta.description,
