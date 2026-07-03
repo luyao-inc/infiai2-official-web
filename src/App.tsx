@@ -389,7 +389,7 @@ function SiteFooter() {
             沪公网安备31010402336775号
           </a>
           <a className="lx-icp hover:text-white" href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
-            {locale === 'zh' ? '沪ICP备2025137719号-1' : 'ICP 2025137719-1'}
+            {locale === 'zh' ? '沪ICP备2025137719号-2' : 'ICP 2025137719-2'}
           </a>
         </div>
       </div>
