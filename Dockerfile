@@ -3,7 +3,9 @@ FROM node:22-alpine AS build
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm ci
+ARG NPM_REGISTRY=https://registry.npmmirror.com
+RUN --mount=type=cache,target=/root/.npm,sharing=locked \
+    npm ci --registry="${NPM_REGISTRY}"
 
 COPY . .
 RUN npm run build
