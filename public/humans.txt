@@ -10,4 +10,4 @@ App: https://app.lingxie.net/
 
 Standards: HTML5, Schema.org JSON-LD, llms.txt
 
-Last updated: 2026-06-12 (Asia/Shanghai)
+Last updated: 2026-07-22 (Asia/Shanghai)

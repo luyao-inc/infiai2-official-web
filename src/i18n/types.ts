@@ -28,6 +28,7 @@ export type Messages = {
   ui: {
     download: string
     directExperience: string
+    openPlatformDocs: string
     termsOfService: string
     privacyPolicy: string
     contactUs: string
