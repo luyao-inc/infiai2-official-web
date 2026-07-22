@@ -9,6 +9,7 @@ export const en: Messages = {
   ui: {
     download: 'Download Now',
     directExperience: 'Try Now',
+    openPlatformDocs: 'Open Platform Docs',
     termsOfService: 'Terms of Service',
     privacyPolicy: 'Privacy Policy',
     contactUs: 'Contact us: info@lingxie.net',

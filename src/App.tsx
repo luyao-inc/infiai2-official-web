@@ -371,6 +371,14 @@ function SiteFooter() {
           <a className="hover:text-white" href="mailto:info@lingxie.net">
             {t.ui.contactUs}
           </a>
+          <a
+            className="hover:text-white"
+            href={SITE.docsUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t.ui.openPlatformDocs}
+          </a>
           <a className="hover:text-white" href={locale === 'en' ? '/en/terms/' : '/terms/'}>
             {t.ui.termsOfService}
           </a>

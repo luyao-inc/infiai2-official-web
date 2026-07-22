@@ -9,6 +9,7 @@ export const zh: Messages = {
   ui: {
     download: '立即下载',
     directExperience: '立即体验',
+    openPlatformDocs: '开放平台文档',
     termsOfService: '服务条款',
     privacyPolicy: '隐私政策',
     contactUs: '联系我们：info@lingxie.net',

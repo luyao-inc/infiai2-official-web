@@ -6,6 +6,7 @@ export const SITE = {
   slogan: '1 分钟即可免费创建一个像你又懂你的数字分身',
   siteUrl: 'https://lingxie.net',
   appUrl: 'https://app.lingxie.net',
+  docsUrl: 'https://api-docs.lingxie.net',
   chatApiUrl: import.meta.env.VITE_OFFICIAL_CHAT_URL || 'https://chat.lingxie.net',
   downloadUrl: 'https://lingxie.net/#platforms',
   githubUrl: 'https://github.com/luyao-inc/infiai2-official-web',
