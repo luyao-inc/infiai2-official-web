@@ -55,6 +55,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         en: path.resolve(__dirname, 'en/index.html'),
+        widget: path.resolve(__dirname, 'widget/embed/index.html'),
       },
     },
   },
