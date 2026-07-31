@@ -32,6 +32,8 @@ type StoredSession = {
   expiresAt: number
 }
 
+type WidgetLayoutMode = 'desktop' | 'mobile'
+
 const query = new URLSearchParams(window.location.search)
 const widgetId = query.get('widgetId')?.trim() ?? ''
 const apiBase = (query.get('apiBase')?.trim() ?? '').replace(/\/$/, '')
@@ -127,8 +129,11 @@ export default function WebsiteWidget() {
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  const [layoutMode, setLayoutMode] = useState<WidgetLayoutMode>('desktop')
   const endRef = useRef<HTMLDivElement>(null)
   const welcomeAt = useRef(Date.now())
+  const appearance = bootstrap?.appearance
+  const themeColor = appearance?.themeColor ?? '#6D5DFB'
 
   const headers = useMemo(
     () => ({ 'Content-Type': 'application/json', 'X-Widget-Origin': parentOrigin }),
@@ -157,13 +162,29 @@ export default function WebsiteWidget() {
   }, [])
 
   useEffect(() => {
+    const receiveLayout = (event: MessageEvent) => {
+      if (
+        event.source !== window.parent ||
+        event.origin !== parentOrigin ||
+        event.data?.source !== 'infiai-widget-host' ||
+        event.data?.type !== 'layout'
+      ) return
+      setLayoutMode(event.data.mode === 'mobile' ? 'mobile' : 'desktop')
+    }
+    window.addEventListener('message', receiveLayout)
+    return () => window.removeEventListener('message', receiveLayout)
+  }, [])
+
+  useEffect(() => {
+    if (!parentOrigin) return
     window.parent.postMessage({
       source: 'infiai-widget',
       type: open ? 'open' : 'close',
       position: bootstrap?.appearance.position ?? 'bottom-right',
       label: bootstrap?.appearance.launcherLabel || bootstrap?.name || '客服',
-    }, '*')
-  }, [open, bootstrap])
+      themeColor,
+    }, parentOrigin)
+  }, [open, bootstrap, themeColor])
 
   useEffect(() => {
     if (!open || !bootstrap || session) return
@@ -248,9 +269,6 @@ export default function WebsiteWidget() {
     }
   }
 
-  const appearance = bootstrap?.appearance
-  const themeColor = appearance?.themeColor ?? '#6D5DFB'
-
   if (!open) {
     return (
       <button
@@ -268,7 +286,10 @@ export default function WebsiteWidget() {
   }
 
   return (
-    <section className="widget-panel" style={{ '--widget-color': themeColor } as CSSProperties}>
+    <section
+      className={`widget-panel widget-${layoutMode}`}
+      style={{ '--widget-color': themeColor } as CSSProperties}
+    >
       <header className="widget-header">
         <WidgetAvatar url={appearance?.avatarURL} />
         <div className="heading">
