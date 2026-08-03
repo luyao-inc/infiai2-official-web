@@ -48,6 +48,28 @@ function LocaleSwitcher() {
 
 function Header() {
   const { t, homePath } = useLocale()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const renderNav = () =>
+    t.nav.map((item) => {
+      const external = item.href.startsWith('http')
+      const emphasized = external || item.href === '#join'
+      return (
+        <a
+          key={item.href}
+          href={item.href}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noreferrer' : undefined}
+          className={`rounded-full px-3 py-2 font-semibold transition hover:bg-white/[0.06] hover:text-white ${
+            emphasized ? 'text-cyan-200' : 'text-slate-500'
+          }`}
+          onClick={() => setMenuOpen(false)}
+        >
+          {item.label}
+        </a>
+      )
+    })
+
   return (
     <header className="relative z-50 h-[88px] border-b border-white/[0.08] bg-[#03050b]/82 backdrop-blur-2xl max-md:h-[72px]">
       <div className={`${container} flex h-full items-center justify-between gap-3`}>
@@ -63,20 +85,39 @@ function Header() {
         </a>
         <nav
           aria-label={t.ui.navAria}
-          className="flex justify-center gap-1 text-sm max-md:hidden"
+          className="hidden justify-center gap-0.5 text-xs xl:flex 2xl:gap-1 2xl:text-sm"
         >
-          {t.nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-3 py-2 font-semibold text-slate-500 transition hover:bg-white/[0.06] hover:text-white"
-            >
-              {item.label}
-            </a>
-          ))}
+          {renderNav()}
         </nav>
-        <LocaleSwitcher />
+        <div className="flex items-center gap-2">
+          <div className="hidden xl:block">
+            <LocaleSwitcher />
+          </div>
+          <button
+            type="button"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-white transition hover:border-cyan-200/40 hover:bg-cyan-300/[0.08] xl:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={menuOpen ? t.ui.menuClose : t.ui.menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span aria-hidden className="text-lg leading-none">{menuOpen ? '×' : '☰'}</span>
+          </button>
+        </div>
       </div>
+      {menuOpen ? (
+        <div
+          id="mobile-navigation"
+          className="absolute left-0 right-0 top-full border-b border-white/[0.08] bg-[#070b15]/95 px-5 py-4 shadow-2xl backdrop-blur-2xl xl:hidden"
+        >
+          <nav aria-label={t.ui.navAria} className="grid gap-1 text-sm">
+            {renderNav()}
+          </nav>
+          <div className="mt-3 border-t border-white/[0.08] pt-3">
+            <LocaleSwitcher />
+          </div>
+        </div>
+      ) : null}
     </header>
   )
 }
@@ -146,6 +187,14 @@ function HeroSection({ onDownloadClick }: { onDownloadClick: () => void }) {
               </button>
               <a className={ghostButton} href={SITE.appUrl} target="_blank" rel="noreferrer">
                 {t.ui.directExperience}
+              </a>
+              <a
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-cyan-200/35 bg-cyan-300/[0.08] px-6 text-sm font-bold text-cyan-100 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-100/60 hover:bg-cyan-300/[0.15] active:translate-y-0"
+                href={SITE.enterprisePlatformUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t.ui.enterpriseAccess}
               </a>
             </div>
           </div>
@@ -280,6 +329,33 @@ function PlatformsSection({ onDownloadClick }: { onDownloadClick: (preferredOs?:
           <div className="lx-platform-grid">
             {t.platforms.map((platform) => {
               const downloadable = DOWNLOADABLE_PLATFORMS.has(platform.os)
+              const cardContent = (
+                <>
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-black text-white">{platform.title}</h3>
+                    <span
+                      className={`rounded-full px-3 py-1 text-xs font-bold ${platform.os === 'ios' ? 'bg-cyan-300/15 text-cyan-200' : 'bg-emerald-300/15 text-emerald-200'}`}
+                    >
+                      {platform.status}
+                    </span>
+                  </div>
+                  <p className="mt-5 text-sm leading-7 text-slate-500">{platform.body}</p>
+                </>
+              )
+              if (platform.os === 'ios') {
+                return (
+                  <a
+                    key={platform.os}
+                    className="lx-platform-card cursor-pointer transition hover:border-cyan-300/25 hover:bg-white/[0.03]"
+                    href={SITE.iosAppStoreUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${platform.title}: ${platform.status}`}
+                  >
+                    {cardContent}
+                  </a>
+                )
+              }
               return (
                 <article
                   key={platform.os}
@@ -298,21 +374,12 @@ function PlatformsSection({ onDownloadClick }: { onDownloadClick: (preferredOs?:
                       }
                     : {})}
                 >
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-black text-white">{platform.title}</h3>
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-bold ${platform.os === 'ios' ? 'bg-amber-300/15 text-amber-200' : 'bg-emerald-300/15 text-emerald-200'}`}
-                    >
-                      {platform.status}
-                    </span>
-                  </div>
-                  <p className="mt-5 text-sm leading-7 text-slate-500">{platform.body}</p>
+                  {cardContent}
                 </article>
               )
             })}
           </div>
         </div>
-        <SiteFooter />
       </div>
     </section>
   )
@@ -405,6 +472,41 @@ function SiteFooter() {
   )
 }
 
+function JoinSection() {
+  const { t } = useLocale()
+  return (
+    <section id="join" className="lx-story-section lx-story-join border-t border-white/[0.08]">
+      <div className={`${container} lx-join-page py-10`}>
+        <div className="lx-join-main">
+          <div className="lx-join-copy">
+            <span className="lx-join-eyebrow">{t.ui.joinEyebrow}</span>
+            <h2 className={sectionTitle}>{t.ui.joinTitle}</h2>
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-400 sm:text-base">{t.ui.joinBody}</p>
+            <a
+              className={`${primaryButton} mt-7`}
+              href={SITE.partnerRecruitUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.ui.joinCta}
+            </a>
+          </div>
+          <div className="lx-join-benefits">
+            {t.joinBenefits.map((benefit, index) => (
+              <article key={benefit.title} className="lx-join-benefit">
+                <span className="text-xs font-black tracking-[0.2em] text-cyan-300">0{index + 1}</span>
+                <h3 className="mt-4 text-lg font-black text-white">{benefit.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-400">{benefit.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <SiteFooter />
+      </div>
+    </section>
+  )
+}
+
 function App() {
   const [downloadOpen, setDownloadOpen] = useState(false)
   const [downloadPreferredOs, setDownloadPreferredOs] = useState<ClientOS | undefined>()
@@ -491,6 +593,7 @@ function App() {
         <CasesSection />
         <FAQSection />
         <PlatformsSection onDownloadClick={openDownload} />
+        <JoinSection />
       </main>
       <DownloadModal open={downloadOpen} onClose={closeDownload} preferredOs={downloadPreferredOs} />
     </div>

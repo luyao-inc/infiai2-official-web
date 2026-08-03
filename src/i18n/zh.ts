@@ -1,4 +1,5 @@
 import type { Messages } from './types'
+import { SITE } from '../content/siteContent'
 
 export const zh: Messages = {
   meta: {
@@ -8,12 +9,20 @@ export const zh: Messages = {
   },
   ui: {
     download: '立即下载',
-    directExperience: '立即体验',
+    directExperience: '个人体验',
+    enterpriseAccess: '企业接入',
+    joinUs: '加入我们',
+    joinEyebrow: '合作伙伴计划',
+    joinTitle: '把资源变成长期收益',
+    joinBody:
+      '灵谐正处在业务快速扩张期，覆盖 C 端博主达人、B 端企业数字员工两大核心赛道，面向全网招募具备客户资源、销售能力的业务合伙人。无需任何投入，依托灵谐已落地的成熟 AI 数字分身产品即可开启合作。合伙人聚焦前端市场开拓与商务洽谈，平台负责产品落地、技术运维、客户售后等中后端工作，双方共享万亿级 AI 市场红利。',
+    joinCta: '立即成为合伙人',
     openPlatformDocs: '开放平台文档',
     termsOfService: '服务条款',
     privacyPolicy: '隐私政策',
     contactUs: '联系我们：info@lingxie.net',
-    comingSoon: '即将上线',
+    menuOpen: '打开菜单',
+    menuClose: '关闭菜单',
     navAria: '主导航',
     langAria: '语言切换',
     langZh: '中文',
@@ -48,8 +57,8 @@ export const zh: Messages = {
       '如果 Windows SmartScreen 阻止运行，请点击“更多信息”后选择“仍要运行”。',
     downloadLoading: '正在获取版本信息...',
     downloadClose: '关闭',
-    mobileComingSoonTitle: 'iOS 即将上线',
-    mobileComingSoonBody: 'iOS 客户端正在准备中。你可以先直接体验网页版，或使用 Android 安装包。',
+    iosDownloadTitle: '前往 App Store 下载',
+    iosDownloadBody: '灵谐 iOS 客户端已上线 App Store，点击按钮即可下载。',
     envWindowsX64: 'Windows（x64）',
     envWindowsArm64: 'Windows（ARM64）',
     envMacApple: 'MacOS（Apple 芯片）',
@@ -67,6 +76,8 @@ export const zh: Messages = {
     { label: '用户案例', href: '#cases' },
     { label: '常见问题', href: '#faq' },
     { label: '下载客户端', href: '#platforms' },
+    { label: '企业服务平台', href: SITE.enterprisePlatformUrl },
+    { label: '加入我们', href: '#join' },
   ],
   hero: {
     badge: '数字分身互动平台',
@@ -139,10 +150,15 @@ export const zh: Messages = {
     ],
   },
   platforms: [
-    { os: 'windows', title: 'Windows', status: '可下载', body: '适合完整桌面体验、持续运行和托管配置。' },
-    { os: 'mac', title: 'MacOS', status: '可下载', body: '支持 Apple 芯片与 Intel 设备，适合日常创作与管理。' },
-    { os: 'ios', title: 'iOS', status: '即将上线', body: '移动端客户端正在准备中，可先体验网页版。' },
-    { os: 'android', title: 'Android', status: '可下载', body: '支持主流 Android 手机，下载 APK 安装后即可登录使用。' },
+    { os: 'windows', title: 'Windows', status: '立即下载', body: '适合完整桌面体验、持续运行和托管配置。' },
+    { os: 'mac', title: 'MacOS', status: '立即下载', body: '支持 Apple 芯片与 Intel 设备，适合日常创作与管理。' },
+    { os: 'ios', title: 'iOS', status: '立即下载', body: 'iOS 客户端已上线 App Store，点击即可下载。' },
+    { os: 'android', title: 'Android', status: '立即下载', body: '支持主流 Android 手机，下载 APK 安装后即可登录使用。' },
+  ],
+  joinBenefits: [
+    { title: '零成本参与成熟业务', body: '无需前期投入，依托灵谐已落地的 AI 数字分身产品，把资源变为可持续的长期收益。' },
+    { title: '顶级佣金分成比例', body: '清晰透明的合作收益机制，多劳多得，收益无上限。' },
+    { title: '全程业务扶持保障', body: '平台提供产品、技术、运维、售后和成交赋能的一站式支持。' },
   ],
   trust: {
     headline: '灵谐把 AI 放回真实关系里',
