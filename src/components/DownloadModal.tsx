@@ -50,7 +50,7 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
       preferredOs ? { os: preferredOs, arch: preferredOs === 'android' ? 'arm64' : detected.arch } : detected,
     [detected, preferredOs],
   )
-  const isIosComingSoon = client.os === 'ios'
+  const isIos = client.os === 'ios'
 
   const { primary, others } = useMemo(() => {
     if (!versions.length) return { primary: null, others: [] as DownloadVersion[] }
@@ -73,7 +73,7 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
     setLoading(true)
     setVersions([])
 
-    if (isIosComingSoon) {
+    if (isIos) {
       setLoading(false)
       return
     }
@@ -92,7 +92,7 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
     return () => {
       cancelled = true
     }
-  }, [open, isIosComingSoon])
+  }, [open, isIos])
 
   useEffect(() => {
     if (!open) return
@@ -165,17 +165,17 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
         </p>
 
         <div className="mt-6">
-          {isIosComingSoon ? (
-            <div className="rounded-2xl border border-amber-300/25 bg-amber-300/[0.08] p-5 text-center">
-              <p className="text-lg font-semibold text-amber-100">{ui.mobileComingSoonTitle}</p>
-              <p className="mt-2 text-sm leading-relaxed text-amber-100/70">{ui.mobileComingSoonBody}</p>
+          {isIos ? (
+            <div className="rounded-2xl border border-cyan-300/25 bg-cyan-300/[0.08] p-5 text-center">
+              <p className="text-lg font-semibold text-cyan-100">{ui.iosDownloadTitle}</p>
+              <p className="mt-2 text-sm leading-relaxed text-cyan-100/70">{ui.iosDownloadBody}</p>
               <a
-                href={SITE.appUrl}
+                href={SITE.iosAppStoreUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-5 inline-flex items-center justify-center rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-[#07111f] transition hover:bg-cyan-100"
               >
-                {ui.directExperience}
+                {ui.download}
               </a>
             </div>
           ) : loading ? (

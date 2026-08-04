@@ -142,6 +142,13 @@
       radial-gradient(circle at 82% 64%, rgba(34, 211, 238, 0.16), transparent 32%);
   }
 
+  .lx-story-join {
+    background:
+      radial-gradient(circle at 18% 30%, rgba(34, 211, 238, 0.16), transparent 34%),
+      radial-gradient(circle at 82% 58%, rgba(124, 58, 237, 0.2), transparent 36%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent);
+  }
+
   .lx-story-cases {
     background:
       radial-gradient(circle at 20% 28%, rgba(34, 211, 238, 0.16), transparent 34%),
@@ -588,6 +595,73 @@
     border-color: rgba(125, 211, 252, 0.38);
   }
 
+  .lx-join-page {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-height: 100%;
+    align-items: center;
+    row-gap: clamp(1.5rem, 4vh, 2.4rem);
+  }
+
+  .lx-join-main {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+  }
+
+  .lx-join-copy {
+    max-width: 42rem;
+  }
+
+  .lx-join-email {
+    margin-top: 0.9rem;
+    color: rgba(203, 213, 225, 0.62);
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .lx-join-email a {
+    color: rgba(165, 243, 252, 0.9);
+    text-decoration: underline;
+    text-decoration-color: rgba(103, 232, 249, 0.35);
+    text-underline-offset: 0.2em;
+  }
+
+  .lx-join-email a:hover {
+    color: white;
+  }
+
+  .lx-join-eyebrow {
+    display: inline-flex;
+    border: 1px solid rgba(103, 232, 249, 0.3);
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.08);
+    padding: 0.5rem 0.85rem;
+    color: rgb(165, 243, 252);
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .lx-join-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .lx-join-benefit {
+    min-height: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at 22% 16%, rgba(34, 211, 238, 0.1), transparent 40%),
+      rgba(2, 8, 20, 0.7);
+    padding: 1.2rem;
+    backdrop-filter: blur(18px);
+  }
+
   .lx-case-marquee {
     position: relative;
     width: 100%;
@@ -972,6 +1046,24 @@
   }
 
   .lx-faq-answer {
+    min-height: auto;
+  }
+
+  .lx-join-page {
+    display: block;
+    min-height: auto;
+  }
+
+  .lx-join-main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .lx-join-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .lx-join-benefit {
     min-height: auto;
   }
 

@@ -1,4 +1,5 @@
 import type { Messages } from './types'
+import { SITE } from '../content/siteContent'
 
 export const en: Messages = {
   meta: {
@@ -8,12 +9,21 @@ export const en: Messages = {
   },
   ui: {
     download: 'Download Now',
-    directExperience: 'Try Now',
+    directExperience: 'Personal Experience',
+    enterpriseAccess: 'Enterprise Access',
+    joinUs: 'Join Us',
+    joinEyebrow: 'Partner Program',
+    joinTitle: 'Turn your resources into long-term value',
+    joinBody:
+      'Lingxie is expanding rapidly across two core tracks: creators and experts on the C side, and enterprise digital employees on the B side. We are recruiting business partners with customer resources and sales capabilities. No upfront investment is required: start with Lingxie’s mature AI digital avatar products already in market. Partners focus on market development and business negotiation, while Lingxie supports product delivery, technical operations, and customer service. Together, we share the opportunity of the trillion-level AI market.',
+    joinCta: 'Become a Partner',
+    joinEmailPrefix: 'Send your resume to',
     openPlatformDocs: 'Open Platform Docs',
     termsOfService: 'Terms of Service',
     privacyPolicy: 'Privacy Policy',
     contactUs: 'Contact us: info@lingxie.net',
-    comingSoon: 'Coming soon',
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
     navAria: 'Primary navigation',
     langAria: 'Language',
     langZh: 'ZH',
@@ -48,8 +58,8 @@ export const en: Messages = {
       'If Windows SmartScreen blocks the app, click “More info”, then “Run anyway”.',
     downloadLoading: 'Loading release...',
     downloadClose: 'Close',
-    mobileComingSoonTitle: 'iOS app coming soon',
-    mobileComingSoonBody: 'The iOS client is in preparation. Try the web app first, or install the Android APK.',
+    iosDownloadTitle: 'Download from the App Store',
+    iosDownloadBody: 'The Lingxie iOS client is now available on the App Store. Click below to download it.',
     envWindowsX64: 'Windows (x64)',
     envWindowsArm64: 'Windows (ARM64)',
     envMacApple: 'MacOS (Apple Silicon)',
@@ -60,6 +70,7 @@ export const en: Messages = {
     envUnknown: 'Unknown environment',
   },
   nav: [
+    { label: 'Enterprise Platform', href: SITE.enterprisePlatformUrl },
     { label: 'Home', href: '#home' },
     { label: 'Digital Avatar', href: '#universe' },
     { label: 'Core Functions', href: '#features' },
@@ -67,6 +78,7 @@ export const en: Messages = {
     { label: 'User Cases', href: '#cases' },
     { label: 'FAQ', href: '#faq' },
     { label: 'Download Client', href: '#platforms' },
+    { label: 'Join Us', href: '#join' },
   ],
   hero: {
     badge: 'Interactive digital avatar platform',
@@ -139,10 +151,15 @@ export const en: Messages = {
     ],
   },
   platforms: [
-    { os: 'windows', title: 'Windows', status: 'Available', body: 'Best for full desktop workflows and continuous hosting setup.' },
-    { os: 'mac', title: 'MacOS', status: 'Available', body: 'Supports Apple Silicon and Intel devices for daily creation and management.' },
-    { os: 'ios', title: 'iOS', status: 'Coming soon', body: 'The mobile client is in preparation. Try the web app first.' },
-    { os: 'android', title: 'Android', status: 'Available', body: 'Install the APK on supported Android phones and sign in to get started.' },
+    { os: 'windows', title: 'Windows', status: 'Download now', body: 'Best for full desktop workflows and continuous hosting setup.' },
+    { os: 'mac', title: 'MacOS', status: 'Download now', body: 'Supports Apple Silicon and Intel devices for daily creation and management.' },
+    { os: 'ios', title: 'iOS', status: 'Download now', body: 'The Lingxie iOS client is now available on the App Store.' },
+    { os: 'android', title: 'Android', status: 'Download now', body: 'Install the APK on supported Android phones and sign in to get started.' },
+  ],
+  joinBenefits: [
+    { title: 'Join a proven business at zero cost', body: 'Start without upfront investment and turn your resources into sustainable long-term returns with Lingxie’s mature AI digital avatar products.' },
+    { title: 'Top-tier commission sharing', body: 'A clear and transparent partner model: more contribution, more earnings, with no upper limit.' },
+    { title: 'End-to-end business support', body: 'Lingxie provides one-stop enablement across product delivery, technology, operations, customer service, and closing.' },
   ],
   trust: {
     headline: 'Lingxie puts AI back into real relationships',

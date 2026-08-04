@@ -21,6 +21,8 @@ export type PlatformItem = {
   body: string
 }
 
+export type JoinBenefit = { title: string; body: string }
+
 export type FaqItem = { q: string; a: string }
 
 export type Messages = {
@@ -28,11 +30,19 @@ export type Messages = {
   ui: {
     download: string
     directExperience: string
+    enterpriseAccess: string
+    joinUs: string
+    joinEyebrow: string
+    joinTitle: string
+    joinBody: string
+    joinCta: string
+    joinEmailPrefix: string
     openPlatformDocs: string
     termsOfService: string
     privacyPolicy: string
     contactUs: string
-    comingSoon: string
+    menuOpen: string
+    menuClose: string
     navAria: string
     langAria: string
     langZh: string
@@ -64,8 +74,8 @@ export type Messages = {
     downloadSmartScreenHint: string
     downloadLoading: string
     downloadClose: string
-    mobileComingSoonTitle: string
-    mobileComingSoonBody: string
+    iosDownloadTitle: string
+    iosDownloadBody: string
     envWindowsX64: string
     envWindowsArm64: string
     envMacApple: string
@@ -95,6 +105,7 @@ export type Messages = {
     items: CaseItem[]
   }
   platforms: PlatformItem[]
+  joinBenefits: JoinBenefit[]
   trust: {
     headline: string
     body: string
