@@ -17,6 +17,7 @@ export const en: Messages = {
     joinBody:
       'Lingxie is expanding rapidly across two core tracks: creators and experts on the C side, and enterprise digital employees on the B side. We are recruiting business partners with customer resources and sales capabilities. No upfront investment is required: start with Lingxie’s mature AI digital avatar products already in market. Partners focus on market development and business negotiation, while Lingxie supports product delivery, technical operations, and customer service. Together, we share the opportunity of the trillion-level AI market.',
     joinCta: 'Become a Partner',
+    joinEmailPrefix: 'Send your resume to',
     openPlatformDocs: 'Open Platform Docs',
     termsOfService: 'Terms of Service',
     privacyPolicy: 'Privacy Policy',

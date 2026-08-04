@@ -614,6 +614,24 @@
     max-width: 42rem;
   }
 
+  .lx-join-email {
+    margin-top: 0.9rem;
+    color: rgba(203, 213, 225, 0.62);
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .lx-join-email a {
+    color: rgba(165, 243, 252, 0.9);
+    text-decoration: underline;
+    text-decoration-color: rgba(103, 232, 249, 0.35);
+    text-underline-offset: 0.2em;
+  }
+
+  .lx-join-email a:hover {
+    color: white;
+  }
+
   .lx-join-eyebrow {
     display: inline-flex;
     border: 1px solid rgba(103, 232, 249, 0.3);

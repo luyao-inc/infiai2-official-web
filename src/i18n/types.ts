@@ -36,6 +36,7 @@ export type Messages = {
     joinTitle: string
     joinBody: string
     joinCta: string
+    joinEmailPrefix: string
     openPlatformDocs: string
     termsOfService: string
     privacyPolicy: string

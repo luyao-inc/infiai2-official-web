@@ -333,9 +333,7 @@ function PlatformsSection({ onDownloadClick }: { onDownloadClick: (preferredOs?:
                 <>
                   <div className="flex items-center justify-between gap-3">
                     <h3 className="text-lg font-black text-white">{platform.title}</h3>
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-bold ${platform.os === 'ios' ? 'bg-cyan-300/15 text-cyan-200' : 'bg-emerald-300/15 text-emerald-200'}`}
-                    >
+                    <span className="rounded-full bg-emerald-300/15 px-3 py-1 text-xs font-bold text-emerald-200">
                       {platform.status}
                     </span>
                   </div>
@@ -481,7 +479,7 @@ function JoinSection() {
           <div className="lx-join-copy">
             <span className="lx-join-eyebrow">{t.ui.joinEyebrow}</span>
             <h2 className={sectionTitle}>{t.ui.joinTitle}</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-8 text-slate-400 sm:text-base">{t.ui.joinBody}</p>
+            <p className="mt-5 max-w-2xl whitespace-pre-line text-sm leading-8 text-slate-400 sm:text-base">{t.ui.joinBody}</p>
             <a
               className={`${primaryButton} mt-7`}
               href={SITE.partnerRecruitUrl}
@@ -490,6 +488,10 @@ function JoinSection() {
             >
               {t.ui.joinCta}
             </a>
+            <p className="lx-join-email">
+              {t.ui.joinEmailPrefix}{' '}
+              <a href="mailto:info@lingxie.net">info@lingxie.net</a>
+            </p>
           </div>
           <div className="lx-join-benefits">
             {t.joinBenefits.map((benefit, index) => (
