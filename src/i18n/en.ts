@@ -69,6 +69,7 @@ export const en: Messages = {
     envUnknown: 'Unknown environment',
   },
   nav: [
+    { label: 'Enterprise Platform', href: SITE.enterprisePlatformUrl },
     { label: 'Home', href: '#home' },
     { label: 'Digital Avatar', href: '#universe' },
     { label: 'Core Functions', href: '#features' },
@@ -76,7 +77,6 @@ export const en: Messages = {
     { label: 'User Cases', href: '#cases' },
     { label: 'FAQ', href: '#faq' },
     { label: 'Download Client', href: '#platforms' },
-    { label: 'Enterprise Platform', href: SITE.enterprisePlatformUrl },
     { label: 'Join Us', href: '#join' },
   ],
   hero: {

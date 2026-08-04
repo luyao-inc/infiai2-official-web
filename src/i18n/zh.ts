@@ -69,6 +69,7 @@ export const zh: Messages = {
     envUnknown: '未知环境',
   },
   nav: [
+    { label: '企业服务平台', href: SITE.enterprisePlatformUrl },
     { label: '首页', href: '#home' },
     { label: '数字分身', href: '#universe' },
     { label: '核心功能', href: '#features' },
@@ -76,7 +77,6 @@ export const zh: Messages = {
     { label: '用户案例', href: '#cases' },
     { label: '常见问题', href: '#faq' },
     { label: '下载客户端', href: '#platforms' },
-    { label: '企业服务平台', href: SITE.enterprisePlatformUrl },
     { label: '加入我们', href: '#join' },
   ],
   hero: {

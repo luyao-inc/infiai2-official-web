@@ -53,7 +53,7 @@ function Header() {
   const renderNav = () =>
     t.nav.map((item) => {
       const external = item.href.startsWith('http')
-      const emphasized = external || item.href === '#join'
+      const emphasized = external
       return (
         <a
           key={item.href}
