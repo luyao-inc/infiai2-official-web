@@ -476,12 +476,24 @@ function JoinSection() {
     <section id="join" className="lx-story-section lx-story-join border-t border-white/[0.08]">
       <div className={`${container} lx-join-page py-10`}>
         <div className="lx-join-main">
+          <div className="lx-join-header">
+            <h2 className="lx-join-heading">{t.ui.joinUs}</h2>
+            <p className="lx-join-title">{t.ui.joinTitle}</p>
+          </div>
           <div className="lx-join-copy">
-            <span className="lx-join-eyebrow">{t.ui.joinEyebrow}</span>
-            <h2 className={sectionTitle}>{t.ui.joinTitle}</h2>
-            <p className="mt-5 max-w-2xl whitespace-pre-line text-sm leading-8 text-slate-400 sm:text-base">{t.ui.joinBody}</p>
+            <p className="lx-join-body whitespace-pre-line text-sm leading-8 text-slate-400 sm:text-base">{t.ui.joinBody}</p>
+          </div>
+          <div className="lx-join-benefits">
+            {t.joinBenefits.map((benefit) => (
+              <article key={benefit.title} className="lx-join-benefit">
+                <h3 className="lx-join-benefit-line">{benefit.title}</h3>
+                <p className="lx-join-benefit-line">{benefit.body}</p>
+              </article>
+            ))}
+          </div>
+          <div className="lx-join-action">
             <a
-              className={`${primaryButton} mt-7`}
+              className={primaryButton}
               href={SITE.partnerRecruitUrl}
               target="_blank"
               rel="noreferrer"
@@ -492,15 +504,6 @@ function JoinSection() {
               {t.ui.joinEmailPrefix}{' '}
               <a href="mailto:info@lingxie.net">info@lingxie.net</a>
             </p>
-          </div>
-          <div className="lx-join-benefits">
-            {t.joinBenefits.map((benefit, index) => (
-              <article key={benefit.title} className="lx-join-benefit">
-                <span className="text-xs font-black tracking-[0.2em] text-cyan-300">0{index + 1}</span>
-                <h3 className="mt-4 text-lg font-black text-white">{benefit.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-400">{benefit.body}</p>
-              </article>
-            ))}
           </div>
         </div>
         <SiteFooter />

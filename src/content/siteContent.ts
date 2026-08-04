@@ -9,7 +9,7 @@ export const SITE = {
   docsUrl: 'https://api-docs.lingxie.net',
   enterprisePlatformUrl: 'https://api-docs.lingxie.net/',
   partnerRecruitUrl: 'https://wj.qq.com/s2/27485346/5x79/',
-  iosAppStoreUrl: 'https://apps.apple.com/cn/app/%E7%81%B5%E8%B0%90/id6772113093',
+  iosAppStoreUrl: 'https://apps.apple.com/cn/app/id6772113093',
   chatApiUrl: import.meta.env.VITE_OFFICIAL_CHAT_URL || 'https://chat.lingxie.net',
   downloadUrl: 'https://lingxie.net/#platforms',
   githubUrl: 'https://github.com/luyao-inc/infiai2-official-web',

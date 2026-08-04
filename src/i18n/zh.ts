@@ -13,7 +13,7 @@ export const zh: Messages = {
     enterpriseAccess: '企业接入',
     joinUs: '加入我们',
     joinEyebrow: '合作伙伴计划',
-    joinTitle: '把资源变成长期收益',
+    joinTitle: '抓住AI市场红利',
     joinBody:
       '灵谐正处在业务快速扩张期，覆盖 C 端博主达人、B 端企业数字员工两大核心赛道，面向全网招募具备客户资源、销售能力的业务合伙人。\n无需任何投入，依托灵谐已落地的成熟 AI 数字分身产品即可开启合作。合伙人聚焦前端市场开拓与商务洽谈，平台负责产品落地、技术运维、客户售后等中后端工作，双方共享万亿级 AI 市场红利。',
     joinCta: '立即成为合伙人',
@@ -157,9 +157,9 @@ export const zh: Messages = {
     { os: 'android', title: 'Android', status: '立即下载', body: '支持主流 Android 手机，下载 APK 安装后即可登录使用。' },
   ],
   joinBenefits: [
-    { title: '零成本参与成熟业务', body: '无需前期投入，依托灵谐已落地的 AI 数字分身产品，把资源变为可持续的长期收益。' },
-    { title: '顶级佣金分成比例', body: '清晰透明的合作收益机制，多劳多得，收益无上限。' },
-    { title: '全程业务扶持保障', body: '平台提供产品、技术、运维、售后和成交赋能的一站式支持。' },
+    { title: '零成本参与成熟业务', body: '把资源变为持续的长期收益' },
+    { title: '提供行业顶级佣金分成比例', body: '多劳多得收益无上限' },
+    { title: '保姆式全程业务扶持保障', body: '平台提供一站式成交赋能' },
   ],
   trust: {
     headline: '灵谐把 AI 放回真实关系里',

@@ -13,9 +13,9 @@ export const en: Messages = {
     enterpriseAccess: 'Enterprise Access',
     joinUs: 'Join Us',
     joinEyebrow: 'Partner Program',
-    joinTitle: 'Turn your resources into long-term value',
+    joinTitle: 'Capture the AI market opportunity',
     joinBody:
-      'Lingxie is expanding rapidly across two core tracks: creators and experts on the C side, and enterprise digital employees on the B side. We are recruiting business partners with customer resources and sales capabilities. No upfront investment is required: start with Lingxie’s mature AI digital avatar products already in market. Partners focus on market development and business negotiation, while Lingxie supports product delivery, technical operations, and customer service. Together, we share the opportunity of the trillion-level AI market.',
+      'Lingxie is expanding rapidly across two core tracks: creators and experts on the C side, and enterprise digital employees on the B side. We are recruiting business partners with customer resources and sales capabilities.\nNo upfront investment is required: start with Lingxie’s mature AI digital avatar products already in market. Partners focus on market development and business negotiation, while Lingxie supports product delivery, technical operations, and customer service. Together, we share the opportunity of the trillion-level AI market.',
     joinCta: 'Become a Partner',
     joinEmailPrefix: 'Send your resume to',
     openPlatformDocs: 'Open Platform Docs',
@@ -157,9 +157,9 @@ export const en: Messages = {
     { os: 'android', title: 'Android', status: 'Download now', body: 'Install the APK on supported Android phones and sign in to get started.' },
   ],
   joinBenefits: [
-    { title: 'Join a proven business at zero cost', body: 'Start without upfront investment and turn your resources into sustainable long-term returns with Lingxie’s mature AI digital avatar products.' },
-    { title: 'Top-tier commission sharing', body: 'A clear and transparent partner model: more contribution, more earnings, with no upper limit.' },
-    { title: 'End-to-end business support', body: 'Lingxie provides one-stop enablement across product delivery, technology, operations, customer service, and closing.' },
+    { title: 'Join a proven business at zero cost', body: 'Turn your resources into sustainable long-term returns' },
+    { title: 'Top-tier industry commission sharing', body: 'More contribution, more earnings, with no upper limit' },
+    { title: 'Full-service business support', body: 'One-stop enablement from Lingxie for every deal' },
   ],
   trust: {
     headline: 'Lingxie puts AI back into real relationships',
