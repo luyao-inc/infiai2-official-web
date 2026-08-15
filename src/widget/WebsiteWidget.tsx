@@ -24,6 +24,7 @@ type ChatMessage = {
   text: string
   status: 'processing' | 'succeeded' | 'failed'
   createdAt: number
+  references?: Array<{ title: string; url: string }>
 }
 
 type StoredSession = {
@@ -254,10 +255,10 @@ export default function WebsiteWidget() {
         body: JSON.stringify({ clientMessageId, text }),
       })
       if (!response.ok) throw new Error(await readError(response))
-      const body = (await response.json()) as { messageId: string; replyText: string; updatedAt?: number }
+      const body = (await response.json()) as { messageId: string; replyText: string; updatedAt?: number; references?: Array<{ title: string; url: string }> }
       setMessages((current) => [
         ...current.map((item) => (item.id === clientMessageId ? { ...item, status: 'succeeded' as const } : item)),
-        { id: `${body.messageId}_reply`, role: 'assistant', text: body.replyText, status: 'succeeded', createdAt: body.updatedAt ?? Date.now() },
+        { id: `${body.messageId}_reply`, role: 'assistant', text: body.replyText, references: body.references, status: 'succeeded', createdAt: body.updatedAt ?? Date.now() },
       ])
     } catch (reason) {
       setMessages((current) =>
@@ -318,7 +319,19 @@ export default function WebsiteWidget() {
             ) : null}
             <div className={`message-row ${message.role}`}>
               {message.role === 'assistant' ? <WidgetAvatar url={appearance?.avatarURL} small /> : null}
-              <div className={`bubble ${message.status === 'failed' ? 'failed' : ''}`}>{message.text}</div>
+              <div>
+                <div className={`bubble ${message.status === 'failed' ? 'failed' : ''}`}>{message.text}</div>
+                {message.role === 'assistant' && message.references?.length ? (
+                  <div className="reference-card">
+                    <strong>相关页面</strong>
+                    {message.references.map((reference) => (
+                      <a key={reference.url} href={reference.url} target="_blank" rel="noreferrer">
+                        {reference.title}
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         ))}
