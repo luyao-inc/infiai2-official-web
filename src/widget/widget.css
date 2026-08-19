@@ -81,8 +81,11 @@ button, textarea { font: inherit; }
 .small-avatar { width: 28px; height: 28px; border: 1px solid #e4e6ed; box-shadow: 0 2px 8px rgb(15 23 42 / .08); background: var(--widget-color); color: white; }
 .small-avatar svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .time-divider { margin: 2px 0 14px; text-align: center; color: #9ca3af; font-size: 11px; line-height: 1.4; }
+.message-content { min-width: 0; max-width: 78%; }
+.message-row.user .message-content { display: flex; flex-direction: column; align-items: flex-end; }
 .bubble {
-  max-width: 78%;
+  width: fit-content;
+  max-width: 100%;
   padding: 11px 13px;
   border: 1px solid #e5e7ee;
   border-radius: 5px 16px 16px 16px;
