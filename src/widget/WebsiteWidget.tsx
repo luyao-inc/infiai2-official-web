@@ -308,7 +308,9 @@ export default function WebsiteWidget() {
             <div className="time-divider">{formatDividerTime(welcomeAt.current)}</div>
             <div className="message-row assistant">
               <WidgetAvatar url={appearance?.avatarURL} small />
-              <div className="bubble">{appearance?.welcomeMessage ?? '你好，请问有什么想咨询的。'}</div>
+              <div className="message-content">
+                <div className="bubble">{appearance?.welcomeMessage ?? '你好，请问有什么想咨询的。'}</div>
+              </div>
             </div>
           </>
         ) : null}
@@ -319,7 +321,7 @@ export default function WebsiteWidget() {
             ) : null}
             <div className={`message-row ${message.role}`}>
               {message.role === 'assistant' ? <WidgetAvatar url={appearance?.avatarURL} small /> : null}
-              <div>
+              <div className="message-content">
                 <div className={`bubble ${message.status === 'failed' ? 'failed' : ''}`}>{message.text}</div>
                 {message.role === 'assistant' && message.references?.length ? (
                   <div className="reference-card">
@@ -338,7 +340,9 @@ export default function WebsiteWidget() {
         {busy ? (
           <div className="message-row assistant">
             <WidgetAvatar url={appearance?.avatarURL} small />
-            <div className="bubble typing"><span /><span /><span /></div>
+            <div className="message-content">
+              <div className="bubble typing"><span /><span /><span /></div>
+            </div>
           </div>
         ) : null}
         <div ref={endRef} />
