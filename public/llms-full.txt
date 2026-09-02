@@ -37,7 +37,7 @@
 
 - Windows: available through desktop installer releases.
 - MacOS: available through desktop installer releases.
-- iOS: coming soon.
+- iOS: available on the App Store at https://apps.apple.com/cn/app/id6772113093.
 - Android: available when a public APK package is published.
 
 ## Frequently asked questions (canonical answers)

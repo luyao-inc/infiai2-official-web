@@ -1,6 +1,6 @@
 import type { ClientOS } from './clientPlatform'
 
-export type AppVersionPlatform = 'windows' | 'macos' | 'android'
+export type AppVersionPlatform = 'windows' | 'macos' | 'ios' | 'android'
 export type AppVersionArch = 'all' | 'x64' | 'arm64' | 'ia32'
 
 export type AppVersionRecord = {
@@ -21,7 +21,7 @@ export type AppVersionRecord = {
 
 export type DownloadVersion = {
   id: string
-  os: Exclude<ClientOS, 'ios' | 'linux' | 'unknown'>
+  os: Exclude<ClientOS, 'linux' | 'unknown'>
   title: string
   versionName: string
   buildNumber: number
@@ -46,6 +46,7 @@ type PageVersionsData = {
 const platformTitles: Record<DownloadVersion['os'], string> = {
   windows: 'Windows',
   mac: 'MacOS',
+  ios: 'iOS',
   android: 'Android',
 }
 
@@ -55,7 +56,7 @@ function operationID() {
 
 function toDownloadOS(platform: string): DownloadVersion['os'] | null {
   if (platform === 'macos') return 'mac'
-  if (platform === 'windows' || platform === 'android') return platform
+  if (platform === 'windows' || platform === 'ios' || platform === 'android') return platform
   return null
 }
 
@@ -71,7 +72,7 @@ function filenameFromURL(rawURL: string) {
 
 function toDownloadVersion(record: AppVersionRecord): DownloadVersion | null {
   const os = toDownloadOS(record.platform)
-  const url = (record.downloadUrl || record.storeUrl || '').trim()
+  const url = ((os === 'ios' ? record.storeUrl || record.downloadUrl : record.downloadUrl || record.storeUrl) || '').trim()
   if (!os || !url) return null
   return {
     id: record.id || `${record.platform}-${record.arch}-${record.buildNumber}`,
@@ -105,7 +106,7 @@ export async function fetchPublicDownloadVersions(baseURL: string): Promise<Down
       operationID: operationID(),
     },
     body: JSON.stringify({
-      platform: ['windows', 'macos', 'android'],
+      platform: ['windows', 'macos', 'ios', 'android'],
       channel: 'prod',
       status: 'published',
       pagination: {
@@ -129,8 +130,7 @@ export function pickDownloadVersion(
   os: ClientOS,
   arch: string,
 ): { primary: DownloadVersion | null; others: DownloadVersion[] } {
-  if (os === 'ios') return { primary: null, others: versions }
-  const supportedOS = os === 'windows' || os === 'mac' || os === 'android' ? os : null
+  const supportedOS = os === 'windows' || os === 'mac' || os === 'ios' || os === 'android' ? os : null
   const matchingOS = supportedOS ? versions.filter((item) => item.os === supportedOS) : []
   const primary =
     matchingOS.find((item) => item.arch === arch) ||

@@ -23,4 +23,5 @@ Humans: https://lingxie.net/humans.txt
 - Product entry: https://app.lingxie.net/
 - Category: interactive digital avatar platform
 - Current downloads: Windows, MacOS, and Android clients when public packages are available
-- Mobile status: iOS client coming soon; web app available now
+- Mobile status: iOS client available on the App Store; web app available now
+- iOS App Store: https://apps.apple.com/cn/app/id6772113093

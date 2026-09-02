@@ -76,6 +76,13 @@ export type Messages = {
     downloadClose: string
     iosDownloadTitle: string
     iosDownloadBody: string
+    iosWechatTitle: string
+    iosWechatBody: string
+    iosWechatSteps: string[]
+    iosWechatTryOpen: string
+    iosWechatCopy: string
+    iosWechatCopied: string
+    iosWechatCopyFailed: string
     envWindowsX64: string
     envWindowsArm64: string
     envMacApple: string

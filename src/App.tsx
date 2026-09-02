@@ -5,7 +5,7 @@ import { useLocale } from './i18n/LocaleProvider'
 import type { PlatformItem } from './i18n/types'
 import type { ClientOS } from './lib/clientPlatform'
 
-const DOWNLOADABLE_PLATFORMS: ReadonlySet<PlatformItem['os']> = new Set(['windows', 'mac', 'android'])
+const DOWNLOADABLE_PLATFORMS: ReadonlySet<PlatformItem['os']> = new Set(['windows', 'mac', 'ios', 'android'])
 
 const shell = 'h-screen overflow-hidden bg-[#03050b] text-slate-300 antialiased'
 const container = 'mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8'
@@ -340,20 +340,6 @@ function PlatformsSection({ onDownloadClick }: { onDownloadClick: (preferredOs?:
                   <p className="mt-5 text-sm leading-7 text-slate-500">{platform.body}</p>
                 </>
               )
-              if (platform.os === 'ios') {
-                return (
-                  <a
-                    key={platform.os}
-                    className="lx-platform-card cursor-pointer transition hover:border-cyan-300/25 hover:bg-white/[0.03]"
-                    href={SITE.iosAppStoreUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${platform.title}: ${platform.status}`}
-                  >
-                    {cardContent}
-                  </a>
-                )
-              }
               return (
                 <article
                   key={platform.os}

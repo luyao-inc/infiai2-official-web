@@ -6,6 +6,7 @@ import { fetchPublicDownloadVersions, pickDownloadVersion, type DownloadVersion 
 import {
   detectClientPlatform,
   detectClientPlatformHighEntropy,
+  isWeChatBrowser,
   type ClientOS,
   type ClientPlatform,
 } from '../lib/clientPlatform'
@@ -37,12 +38,35 @@ function packageLine(item: DownloadVersion, locale: string) {
   return item.packageSize > 0 ? `${item.filename} · ${formatBytes(item.packageSize, locale)}` : item.filename
 }
 
+async function copyText(text: string): Promise<void> {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text)
+      return
+    } catch {
+      // Fall through to the legacy copy path used by some embedded browsers.
+    }
+  }
+
+  const textarea = document.createElement('textarea')
+  textarea.value = text
+  textarea.setAttribute('readonly', '')
+  textarea.style.position = 'fixed'
+  textarea.style.opacity = '0'
+  document.body.appendChild(textarea)
+  textarea.select()
+  const copied = document.execCommand('copy')
+  textarea.remove()
+  if (!copied) throw new Error('copy failed')
+}
+
 export function DownloadModal({ open, onClose, preferredOs }: Props) {
   const { t, locale } = useLocale()
   const ui = t.ui
   const [loading, setLoading] = useState(true)
   const [err, setErr] = useState(false)
   const [versions, setVersions] = useState<DownloadVersion[]>([])
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
 
   const [detected, setDetected] = useState<ClientPlatform>(() => detectClientPlatform())
   const client = useMemo(
@@ -51,6 +75,7 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
     [detected, preferredOs],
   )
   const isIos = client.os === 'ios'
+  const isIosWeChat = isIos && isWeChatBrowser()
 
   const { primary, others } = useMemo(() => {
     if (!versions.length) return { primary: null, others: [] as DownloadVersion[] }
@@ -73,11 +98,6 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
     setLoading(true)
     setVersions([])
 
-    if (isIos) {
-      setLoading(false)
-      return
-    }
-
     let cancelled = false
     fetchPublicDownloadVersions(SITE.chatApiUrl)
       .then((data) => {
@@ -92,7 +112,11 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
     return () => {
       cancelled = true
     }
-  }, [open, isIos])
+  }, [open])
+
+  useEffect(() => {
+    if (open) setCopyStatus('idle')
+  }, [open])
 
   useEffect(() => {
     if (!open) return
@@ -121,6 +145,16 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
   const releasedLine = published && replacePlaceholders(ui.downloadReleased, { date: published })
 
   const showSmartScreen = client.os === 'windows' && primary != null && /\.exe$/i.test(primary.filename)
+  const iosAppStoreURL = isIos && primary?.url ? primary.url : SITE.iosAppStoreUrl
+
+  const copyIosLink = async () => {
+    try {
+      await copyText(iosAppStoreURL)
+      setCopyStatus('copied')
+    } catch {
+      setCopyStatus('failed')
+    }
+  }
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -167,16 +201,59 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
         <div className="mt-6">
           {isIos ? (
             <div className="rounded-2xl border border-cyan-300/25 bg-cyan-300/[0.08] p-5 text-center">
-              <p className="text-lg font-semibold text-cyan-100">{ui.iosDownloadTitle}</p>
-              <p className="mt-2 text-sm leading-relaxed text-cyan-100/70">{ui.iosDownloadBody}</p>
-              <a
-                href={SITE.iosAppStoreUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex items-center justify-center rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-[#07111f] transition hover:bg-cyan-100"
-              >
-                {ui.download}
-              </a>
+              <p className="text-lg font-semibold text-cyan-100">
+                {isIosWeChat ? ui.iosWechatTitle : ui.iosDownloadTitle}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-cyan-100/70">
+                {isIosWeChat ? ui.iosWechatBody : ui.iosDownloadBody}
+              </p>
+              {isIosWeChat ? (
+                <>
+                  <ol className="mt-5 space-y-2 text-left text-sm text-cyan-50/85">
+                    {ui.iosWechatSteps.map((step, index) => (
+                      <li key={step} className="flex gap-3">
+                        <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-cyan-200/15 text-xs font-bold text-cyan-100">
+                          {index + 1}
+                        </span>
+                        <span className="pt-0.5">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                  <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                    <a
+                      href={iosAppStoreURL}
+                      className="inline-flex min-h-11 items-center justify-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-[#07111f] transition hover:bg-cyan-100"
+                    >
+                      {ui.iosWechatTryOpen}
+                    </a>
+                    <button
+                      type="button"
+                      className="inline-flex min-h-11 items-center justify-center rounded-xl border border-cyan-100/25 bg-cyan-100/[0.08] px-4 py-2.5 text-sm font-bold text-cyan-50 transition hover:bg-cyan-100/[0.14]"
+                      onClick={copyIosLink}
+                    >
+                      {copyStatus === 'copied' ? ui.iosWechatCopied : ui.iosWechatCopy}
+                    </button>
+                  </div>
+                  {copyStatus === 'failed' ? (
+                    <p role="alert" className="mt-3 text-xs text-amber-200">
+                      {ui.iosWechatCopyFailed}
+                    </p>
+                  ) : null}
+                  <a
+                    href={iosAppStoreURL}
+                    className="mt-3 block break-all text-xs leading-5 text-cyan-200/65 underline decoration-cyan-200/30 underline-offset-2"
+                  >
+                    {iosAppStoreURL}
+                  </a>
+                </>
+              ) : (
+                <a
+                  href={iosAppStoreURL}
+                  className="mt-5 inline-flex items-center justify-center rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-[#07111f] transition hover:bg-cyan-100"
+                >
+                  {ui.download}
+                </a>
+              )}
             </div>
           ) : loading ? (
             <p className="text-center text-sm text-zinc-500">{ui.downloadLoading}</p>

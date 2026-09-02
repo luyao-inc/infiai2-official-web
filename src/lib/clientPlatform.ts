@@ -3,6 +3,8 @@ export type ClientArch = 'x64' | 'arm64' | 'unknown'
 
 export type ClientPlatform = { os: ClientOS; arch: ClientArch }
 
+const WECHAT_USER_AGENT = /MicroMessenger/i
+
 type UserAgentData = {
   platform?: string
   getHighEntropyValues?: (hints: string[]) => Promise<{ architecture?: string; platform?: string }>
@@ -61,4 +63,8 @@ export async function detectClientPlatformHighEntropy(): Promise<ClientPlatform>
 
   const arch = normalizeArch(highEntropy.architecture)
   return { os, arch: arch === 'unknown' ? base.arch : arch }
+}
+
+export function isWeChatBrowser(userAgent = navigator.userAgent): boolean {
+  return WECHAT_USER_AGENT.test(userAgent)
 }
