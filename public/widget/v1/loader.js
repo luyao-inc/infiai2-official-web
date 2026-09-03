@@ -39,6 +39,9 @@
   var position = 'bottom-right'
   var opened = false
   var themeColor = '#6d5dfb'
+  var applyFrame = 0
+  var lastRect = ''
+  var lastLayout = ''
 
   function viewportBounds() {
     var viewport = window.visualViewport
@@ -59,12 +62,19 @@
   }
 
   function setFrameRect(left, top, width, height) {
-    frame.style.left = Math.round(left) + 'px'
-    frame.style.top = Math.round(top) + 'px'
+    left = Math.round(left)
+    top = Math.round(top)
+    width = Math.max(1, Math.round(width))
+    height = Math.max(1, Math.round(height))
+    var nextRect = [left, top, width, height].join(':')
+    if (nextRect === lastRect) return
+    lastRect = nextRect
+    frame.style.left = left + 'px'
+    frame.style.top = top + 'px'
     frame.style.right = 'auto'
     frame.style.bottom = 'auto'
-    frame.style.width = Math.max(1, Math.round(width)) + 'px'
-    frame.style.height = Math.max(1, Math.round(height)) + 'px'
+    frame.style.width = width + 'px'
+    frame.style.height = height + 'px'
   }
 
   function applyFrameChrome(mode) {
@@ -89,6 +99,15 @@
 
   function sendLayout(mode, bounds, width, height) {
     if (!frame.contentWindow) return
+    var nextLayout = [
+      mode,
+      Math.round(bounds.width),
+      Math.round(bounds.height),
+      Math.round(width),
+      Math.round(height),
+    ].join(':')
+    if (nextLayout === lastLayout) return
+    lastLayout = nextLayout
     frame.contentWindow.postMessage({
       source: 'infiai-widget-host',
       type: 'layout',
@@ -139,6 +158,14 @@
     sendLayout(mode, bounds, width, height)
   }
 
+  function scheduleApplySize() {
+    if (applyFrame) return
+    applyFrame = window.requestAnimationFrame(function () {
+      applyFrame = 0
+      applySize()
+    })
+  }
+
   function resize(event) {
     if (
       event.source !== frame.contentWindow ||
@@ -156,20 +183,26 @@
     }
     if (event.data.type === 'open') {
       opened = true
+      document.documentElement.dataset.infiaiWidgetOpen = 'true'
       applySize()
     } else if (event.data.type === 'close') {
       opened = false
+      delete document.documentElement.dataset.infiaiWidgetOpen
       applySize()
     }
   }
 
   window.addEventListener('message', resize)
-  window.addEventListener('resize', applySize)
-  window.addEventListener('orientationchange', applySize)
+  window.addEventListener('resize', scheduleApplySize)
+  window.addEventListener('orientationchange', scheduleApplySize)
   if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', applySize)
-    window.visualViewport.addEventListener('scroll', applySize)
+    window.visualViewport.addEventListener('resize', scheduleApplySize)
+    window.visualViewport.addEventListener('scroll', scheduleApplySize)
   }
-  frame.addEventListener('load', applySize)
+  frame.addEventListener('load', function () {
+    // The first pre-load message may not have reached the iframe listener.
+    lastLayout = ''
+    scheduleApplySize()
+  })
   applySize()
 })()

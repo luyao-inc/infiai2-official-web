@@ -520,6 +520,12 @@ function App() {
 
     const getSections = () => Array.from(stage.querySelectorAll<HTMLElement>('.lx-story-section'))
 
+    const setActiveScene = (sections: HTMLElement[], activeIndex: number) => {
+      sections.forEach((section, index) => {
+        section.dataset.sceneActive = String(index === activeIndex)
+      })
+    }
+
     const goToScene = (index: number) => {
       const sections = getSections()
       const targetIndex = Math.max(0, Math.min(index, sections.length - 1))
@@ -527,6 +533,7 @@ function App() {
       if (!target) return
 
       activeSceneRef.current = targetIndex
+      setActiveScene(sections, targetIndex)
       const motion = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
       stage.scrollTo({ top: target.offsetTop, behavior: motion })
     }
@@ -539,6 +546,7 @@ function App() {
       const progress = stage.scrollTop / firstSectionHeight
       const nearestIndex = Math.max(0, Math.min(Math.round(progress), sections.length - 1))
       activeSceneRef.current = nearestIndex
+      setActiveScene(sections, nearestIndex)
     }
 
     const unlock = () => {

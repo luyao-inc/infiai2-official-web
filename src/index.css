@@ -52,6 +52,25 @@
     overflow: hidden;
   }
 
+  /* Only the visible full-screen scene should consume animation frames. */
+  .lx-story-section:not([data-scene-active='true']),
+  .lx-story-section:not([data-scene-active='true'])::before,
+  .lx-story-section:not([data-scene-active='true'])::after,
+  .lx-story-section:not([data-scene-active='true']) *,
+  .lx-story-section:not([data-scene-active='true']) *::before,
+  .lx-story-section:not([data-scene-active='true']) *::after {
+    animation-play-state: paused !important;
+  }
+
+  /* The support panel is the foreground task; freeze decorative background motion. */
+  html[data-infiai-widget-open='true'] .lx-story-section,
+  html[data-infiai-widget-open='true'] .lx-story-section::before,
+  html[data-infiai-widget-open='true'] .lx-story-section::after,
+  html[data-infiai-widget-open='true'] .lx-story-section *,
+  html[data-infiai-widget-open='true'] .lx-story-section *::before,
+  html[data-infiai-widget-open='true'] .lx-story-section *::after {
+    animation-play-state: paused !important;
+  }
 
   /* 首屏：内容在可视区内垂直水平居中，左右栏等宽对称 */
   .lx-story-hero .lx-hero-inner {
@@ -309,6 +328,7 @@
     backdrop-filter: blur(18px);
     animation: lx-node 4.8s ease-in-out infinite;
     animation-delay: var(--delay);
+    will-change: transform;
   }
 
   .lx-pulse {
@@ -1038,10 +1058,20 @@
 @keyframes lx-node {
   0%,
   100% {
-    margin-top: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateX(var(--radius))
+      rotate(calc(-1 * var(--angle)))
+      translateY(0);
   }
   50% {
-    margin-top: -12px;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateX(var(--radius))
+      rotate(calc(-1 * var(--angle)))
+      translateY(-12px);
   }
 }
 
