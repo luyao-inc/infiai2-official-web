@@ -373,7 +373,6 @@ function FAQSection() {
   const { t } = useLocale()
   const [active, setActive] = useState(0)
   const visibleFaqs = t.faqs
-  const activeFaq = visibleFaqs[active] ?? visibleFaqs[0]
 
   return (
     <section id="faq" className="lx-story-section lx-story-faq flex items-center border-t border-white/[0.08]">
@@ -395,11 +394,15 @@ function FAQSection() {
             ))}
           </div>
         </div>
-        <article className="lx-faq-answer">
-          <span>{String(active + 1).padStart(2, '0')}</span>
-          <h3>{activeFaq.q}</h3>
-          <p>{activeFaq.a}</p>
-        </article>
+        <div className="lx-faq-panels">
+          {visibleFaqs.map((item, index) => (
+            <article key={item.q} className="lx-faq-answer" hidden={index !== active}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{item.q}</h3>
+              <p>{item.a}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -407,49 +410,52 @@ function FAQSection() {
 
 function SiteFooter() {
   const { t, homePath, locale } = useLocale()
+  const zh = locale === 'zh'
+  const groups = [
+    { title: zh ? '使用指南' : 'Guides', links: [
+      ['/guides/create-ai-avatar/', zh ? '创建数字分身' : 'Create an avatar (中文)'],
+      ['/guides/ai-avatar-for-creators/', zh ? '创作者指南' : 'For creators (中文)'],
+      ['/guides/ai-avatar-for-business/', zh ? '企业使用指南' : 'For business (中文)'],
+      ['/compare/ai-avatar-vs-chatbot/', zh ? '数字分身与聊天机器人' : 'Avatar vs. chatbot (中文)'],
+    ] },
+    { title: zh ? '产品与资源' : 'Product & resources', links: [
+      ['/pricing/', zh ? '费用说明' : 'Costs (中文)'],
+      ['/security/', zh ? '资料与接入权限' : 'Data & access (中文)'],
+      ['/updates/', zh ? '更新记录' : 'Updates (中文)'],
+      [SITE.docsUrl, zh ? '开放平台文档' : 'Developer documentation'],
+    ] },
+    { title: zh ? '关于灵谐' : 'About Lingxie', links: [
+      [zh ? '/about/' : '/en/about/', zh ? '品牌与公司' : 'Brand & company'],
+      ['mailto:info@lingxie.net', zh ? '联系我们' : 'Contact us'],
+      [zh ? '/terms/' : '/en/terms/', t.ui.termsOfService],
+      [zh ? '/privacy/' : '/en/privacy/', t.ui.privacyPolicy],
+    ] },
+  ]
   return (
-    <footer className="lx-site-footer text-sm text-slate-600">
-      <div className="lx-footer-left">
-        <a className="text-base font-black text-slate-300 hover:text-white" href={homePath}>{t.hero.headline}</a>
-        <div className="mt-3 space-y-1">
-          <p>
-            © {new Date().getFullYear()} {t.hero.headline} - {t.ui.copyrightSuffix}
-          </p>
+    <footer className="lx-site-footer" id="site-footer">
+      <div className="lx-footer-main">
+        <div className="lx-footer-brand">
+          <a className="lx-footer-brand-name" href={homePath}><img src="/logo.png" alt="" width={38} height={38} />{t.hero.headline}</a>
+          <p>{zh ? <>让你的知识与经验，<br />连接更多可能。</> : <>An extension of you.<br />A new way to connect.</>}</p>
+          <a className="lx-footer-email" href="mailto:info@lingxie.net">info@lingxie.net</a>
         </div>
+        <nav className="lx-footer-groups" aria-label={zh ? '页脚导航' : 'Footer navigation'}>
+          {groups.map(group => (
+            <section className="lx-footer-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>{group.links.map(([href, label]) => <li key={href}><a href={href}>{label}</a></li>)}</ul>
+            </section>
+          ))}
+        </nav>
       </div>
-      <div className="lx-footer-right">
-        <div className="flex flex-wrap justify-end gap-x-6 gap-y-2">
-          <a className="hover:text-white" href="mailto:info@lingxie.net">
-            {t.ui.contactUs}
-          </a>
-          <a
-            className="hover:text-white"
-            href={SITE.docsUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t.ui.openPlatformDocs}
-          </a>
-          <a className="hover:text-white" href={locale === 'en' ? '/en/terms/' : '/terms/'}>
-            {t.ui.termsOfService}
-          </a>
-          <a className="hover:text-white" href={locale === 'en' ? '/en/privacy/' : '/privacy/'}>
-            {t.ui.privacyPolicy}
-          </a>
-        </div>
+      <div className="lx-footer-bottom">
+        <p>© {new Date().getFullYear()} {SITE.nameEn} · {zh ? '灵谐' : 'Lingxie'}</p>
         <div className="lx-beian-row">
-          <a
-            className="lx-psb hover:text-white"
-            href="https://beian.mps.gov.cn/#/query/webSearch?code=31010402336775"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a className="lx-psb" href="https://beian.mps.gov.cn/#/query/webSearch?code=31010402336775" target="_blank" rel="noreferrer">
             <img className="lx-psb-logo" src="/beian-mps-logo.png" alt="" width={16} height={16} />
             沪公网安备31010402336775号
           </a>
-          <a className="lx-icp hover:text-white" href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
-            {locale === 'zh' ? '沪ICP备2025137719号-2' : 'ICP 2025137719-2'}
-          </a>
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">{zh ? '沪ICP备2025137719号-2' : 'ICP 2025137719-2'}</a>
         </div>
       </div>
     </footer>
@@ -492,7 +498,6 @@ function JoinSection() {
             </p>
           </div>
         </div>
-        <SiteFooter />
       </div>
     </section>
   )
@@ -593,6 +598,9 @@ function App() {
         <FAQSection />
         <PlatformsSection onDownloadClick={openDownload} />
         <JoinSection />
+        <section className="lx-story-section lx-story-footer">
+          <div className={container}><SiteFooter /></div>
+        </section>
       </main>
       <DownloadModal open={downloadOpen} onClose={closeDownload} preferredOs={downloadPreferredOs} />
     </div>
