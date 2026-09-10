@@ -1,13 +1,15 @@
 import { OFFICIAL_PROFILE_URLS } from './officialProfiles'
+import brand from '../../public/brand-facts.json'
 
 /** 非文案配置：官网公开下载从 Chat 版本管理接口读取。 */
 export const SITE = {
-  name: '灵谐',
+  name: brand.brandNameZh,
+  nameEn: brand.brandNameEn,
   slogan: '1 分钟即可免费创建一个像你又懂你的数字分身',
-  siteUrl: 'https://lingxie.net',
+  siteUrl: brand.canonicalDomain,
   appUrl: 'https://app.lingxie.net',
-  docsUrl: 'https://open.lingxie.net',
-  enterprisePlatformUrl: 'https://open.lingxie.net/',
+  docsUrl: import.meta.env.VITE_SITE_DOCS_URL || brand.developerDomain,
+  enterprisePlatformUrl: (import.meta.env.VITE_SITE_DOCS_URL || brand.developerDomain) + '/',
   partnerRecruitUrl: 'https://wj.qq.com/s2/27485346/5x79/',
   iosAppStoreUrl: 'https://apps.apple.com/cn/app/id6772113093',
   chatApiUrl: import.meta.env.VITE_OFFICIAL_CHAT_URL || 'https://chat.lingxie.net',

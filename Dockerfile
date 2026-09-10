@@ -8,6 +8,7 @@ RUN --mount=type=cache,target=/root/.npm,sharing=locked \
     npm ci --registry="${NPM_REGISTRY}"
 
 COPY . .
+ARG VITE_SITE_DOCS_URL=
 RUN npm run build
 
 FROM nginx:1.27-alpine AS production

@@ -35,9 +35,6 @@ function upsertMeta(selector: string, attr: 'content' | 'href', value: string) {
 }
 
 function getSiteUrl() {
-  if (typeof window !== 'undefined' && window.location?.origin) {
-    return window.location.origin
-  }
   return SITE.siteUrl
 }
 
@@ -106,8 +103,8 @@ type LocaleContextValue = {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null)
 
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(() => readInitialLocale())
+export function LocaleProvider({ children, initialLocale }: { children: ReactNode; initialLocale?: Locale }) {
+  const [locale, setLocaleState] = useState<Locale>(() => initialLocale ?? readInitialLocale())
 
   useEffect(() => {
     const syncFromUrl = () => {
@@ -137,7 +134,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       typeof window !== 'undefined' ? window.location.pathname : '/'
     const pageUrl =
       typeof window !== 'undefined'
-        ? canonicalLandingUrl(window.location.origin, pathname)
+        ? canonicalLandingUrl(SITE.siteUrl, pathname)
         : `${SITE.siteUrl}/`
     const logoUrl = `${siteUrl}/logo.png`
     const softwareLanding =
@@ -171,7 +168,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       '@id': orgId,
-      name: t.hero.headline,
+      name: locale === 'zh' ? SITE.name : SITE.nameEn,
       url: `${siteUrl}/`,
       logo: logoUrl,
       description: t.meta.description,

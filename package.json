@@ -5,12 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/geo-sync-dates.mjs",
-    "build": "tsc -b && vite build --emptyOutDir && node scripts/verify-geo-assets.mjs",
+    "build": "tsc -b && vite build --emptyOutDir && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/verify-geo-assets.mjs",
     "geo:ping": "node scripts/geo-ping-sitemaps.mjs",
-    "deploy:geo": "npm run build && npm run geo:ping",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "geo:check": "node scripts/geo-ping-sitemaps.mjs"
   },
   "dependencies": {
     "react": "^19.2.4",

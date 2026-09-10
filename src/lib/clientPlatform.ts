@@ -18,6 +18,7 @@ function normalizeArch(value?: string): ClientArch {
 }
 
 export function detectClientPlatform(): ClientPlatform {
+  if (typeof navigator === 'undefined') return { os: 'unknown', arch: 'unknown' }
   const ua = navigator.userAgent
   const uaL = ua.toLowerCase()
 
@@ -65,6 +66,6 @@ export async function detectClientPlatformHighEntropy(): Promise<ClientPlatform>
   return { os, arch: arch === 'unknown' ? base.arch : arch }
 }
 
-export function isWeChatBrowser(userAgent = navigator.userAgent): boolean {
+export function isWeChatBrowser(userAgent = typeof navigator === 'undefined' ? '' : navigator.userAgent): boolean {
   return WECHAT_USER_AGENT.test(userAgent)
 }
