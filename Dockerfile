@@ -10,6 +10,9 @@ RUN --mount=type=cache,target=/root/.npm,sharing=locked \
 COPY . .
 ARG VITE_SITE_DOCS_URL=
 RUN npm run build
+ARG INDEXNOW_KEY_SHA256=
+RUN --mount=type=secret,id=indexnow_key \
+    node scripts/prepare-indexnow.mjs dist
 
 FROM nginx:1.27-alpine AS production
 COPY nginx.conf /etc/nginx/conf.d/default.conf
