@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { SITE } from '../content/siteContent'
 import { useLocale } from '../i18n/LocaleProvider'
-import { fetchPublicDownloadVersions, pickDownloadVersion, type DownloadVersion } from '../lib/appVersionApi'
+import { fetchPublicDownloadVersions, isPublicDownloadOS, pickDownloadVersion, type DownloadVersion } from '../lib/appVersionApi'
 import {
   detectClientPlatform,
   detectClientPlatformHighEntropy,
@@ -67,13 +67,18 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
   const [err, setErr] = useState(false)
   const [versions, setVersions] = useState<DownloadVersion[]>([])
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const [selectedMobileOs, setSelectedMobileOs] = useState<'ios' | 'android'>()
 
   const [detected, setDetected] = useState<ClientPlatform>(() => detectClientPlatform())
+  const selectedOs = preferredOs || selectedMobileOs
   const client = useMemo(
     (): ClientPlatform =>
-      preferredOs ? { os: preferredOs, arch: preferredOs === 'android' ? 'arm64' : detected.arch } : detected,
-    [detected, preferredOs],
+      selectedOs
+        ? { os: selectedOs, arch: selectedOs === 'android' ? 'arm64' : detected.arch }
+        : detected,
+    [detected, selectedOs],
   )
+  const showMobileChoices = !preferredOs && !isPublicDownloadOS(detected.os)
   const isIos = client.os === 'ios'
   const isIosWeChat = isIos && isWeChatBrowser()
 
@@ -97,6 +102,7 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
     setErr(false)
     setLoading(true)
     setVersions([])
+    setSelectedMobileOs(undefined)
 
     let cancelled = false
     fetchPublicDownloadVersions(SITE.chatApiUrl)
@@ -140,11 +146,10 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
 
   const title = replacePlaceholders(ui.downloadModalTitle, { name: t.hero.headline })
   const detectedLine = replacePlaceholders(ui.downloadDetected, {
-    env: envDescription(client, ui),
+    env: envDescription(detected, ui),
   })
   const releasedLine = published && replacePlaceholders(ui.downloadReleased, { date: published })
 
-  const showSmartScreen = client.os === 'windows' && primary != null && /\.exe$/i.test(primary.filename)
   const iosAppStoreURL = isIos && primary?.url ? primary.url : SITE.iosAppStoreUrl
 
   const copyIosLink = async () => {
@@ -199,7 +204,22 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
         </p>
 
         <div className="mt-6">
-          {isIos ? (
+          {showMobileChoices ? (
+            <div className="mb-5 rounded-2xl border border-cyan-300/25 bg-cyan-300/[0.08] p-5">
+              <p className="text-sm leading-relaxed text-cyan-100/80">{ui.downloadDesktopHint}</p>
+              <a href={SITE.appUrl} target="_blank" rel="noreferrer" className="mt-4 flex min-h-11 items-center justify-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-[#07111f]">
+                {ui.downloadOpenWeb}
+              </a>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {(['ios', 'android'] as const).map((os) => (
+                  <button key={os} type="button" aria-pressed={selectedMobileOs === os} onClick={() => setSelectedMobileOs(os)} className="min-h-11 rounded-xl border border-cyan-100/25 bg-cyan-100/[0.08] px-4 py-2.5 text-sm font-bold text-cyan-50 transition hover:bg-cyan-100/[0.14] aria-pressed:bg-cyan-100/20">
+                    {os === 'ios' ? 'iOS' : 'Android'}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {!isPublicDownloadOS(client.os) ? null : isIos ? (
             <div className="rounded-2xl border border-cyan-300/25 bg-cyan-300/[0.08] p-5 text-center">
               <p className="text-lg font-semibold text-cyan-100">
                 {isIosWeChat ? ui.iosWechatTitle : ui.iosDownloadTitle}
@@ -288,14 +308,11 @@ export function DownloadModal({ open, onClose, preferredOs }: Props) {
                   {ui.download}
                 </span>
               </a>
-              {showSmartScreen ? (
-                <p className="mt-3 text-xs leading-relaxed text-zinc-600">{ui.downloadSmartScreenHint}</p>
-              ) : null}
             </>
           )}
         </div>
 
-        {!loading && !err && others.length > 0 ? (
+        {isPublicDownloadOS(client.os) && !loading && !err && others.length > 0 ? (
           <details className="mt-5 rounded-xl border border-white/[0.08] bg-white/[0.02] px-4 py-3">
             <summary className="cursor-pointer text-sm font-medium text-zinc-300">{ui.downloadOtherPlatforms}</summary>
             <ul className="mt-3 space-y-2 border-t border-white/[0.06] pt-3">

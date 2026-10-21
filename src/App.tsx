@@ -2,10 +2,8 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { DownloadModal } from './components/DownloadModal'
 import { SITE } from './content/siteContent'
 import { useLocale } from './i18n/LocaleProvider'
-import type { PlatformItem } from './i18n/types'
+import { isPublicDownloadOS } from './lib/appVersionApi'
 import type { ClientOS } from './lib/clientPlatform'
-
-const DOWNLOADABLE_PLATFORMS: ReadonlySet<PlatformItem['os']> = new Set(['windows', 'mac', 'ios', 'android'])
 
 const shell = 'h-screen overflow-hidden bg-[#03050b] text-slate-300 antialiased'
 const container = 'mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8'
@@ -327,8 +325,8 @@ function PlatformsSection({ onDownloadClick }: { onDownloadClick: (preferredOs?:
             </div>
           </div>
           <div className="lx-platform-grid">
-            {t.platforms.map((platform) => {
-              const downloadable = DOWNLOADABLE_PLATFORMS.has(platform.os)
+            {t.platforms.filter((platform) => isPublicDownloadOS(platform.os)).map((platform) => {
+              const downloadable = isPublicDownloadOS(platform.os)
               const cardContent = (
                 <>
                   <div className="flex items-center justify-between gap-3">

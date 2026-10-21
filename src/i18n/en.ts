@@ -48,6 +48,8 @@ export const en: Messages = {
     copyrightSuffix: 'Interactive Digital Avatar Platform',
     downloadModalTitle: 'Choose your experience',
     downloadModalSub: 'Lingxie recommends the best entry for your current device.',
+    downloadDesktopHint: 'Use the web app on your computer, or choose iOS or Android to download the mobile app.',
+    downloadOpenWeb: 'Open web app',
     downloadReleased: 'Released on {date}',
     downloadDetected: 'Detected: {env}',
     downloadOtherPlatforms: 'Other platforms',

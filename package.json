@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build --emptyOutDir && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/verify-geo-assets.mjs",
+    "build": "node scripts/verify-website-widget.mjs --config && tsc -b && vite build --emptyOutDir && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/verify-geo-assets.mjs && node scripts/verify-website-widget.mjs",
+    "check:widget": "node scripts/verify-website-widget.mjs",
     "geo:ping": "node scripts/geo-ping-sitemaps.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
