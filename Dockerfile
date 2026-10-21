@@ -9,6 +9,8 @@ RUN --mount=type=cache,target=/root/.npm,sharing=locked \
 
 COPY . .
 ARG VITE_SITE_DOCS_URL=
+ARG VITE_WEBSITE_WIDGET_ID=
+ARG VITE_WEBSITE_WIDGET_API_BASE=
 RUN npm run build
 ARG INDEXNOW_KEY_SHA256=
 RUN --mount=type=secret,id=indexnow_key \

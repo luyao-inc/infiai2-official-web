@@ -48,6 +48,8 @@ export const zh: Messages = {
     copyrightSuffix: '数字分身互动平台',
     downloadModalTitle: '选择你的体验方式',
     downloadModalSub: '灵谐会根据当前设备推荐最合适的入口。',
+    downloadDesktopHint: '在电脑上可直接使用网页版，也可选择 iOS 或 Android 下载移动客户端。',
+    downloadOpenWeb: '进入网页版',
     downloadReleased: '发布于 {date}',
     downloadDetected: '检测到的系统：{env}',
     downloadOtherPlatforms: '其他平台',

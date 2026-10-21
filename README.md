@@ -13,6 +13,20 @@ npm run build
 
 `npm run build` 依次运行类型检查、客户端构建、服务端构建、双语静态渲染和 GEO 产物检查。`dist-ssr` 只在构建阶段使用，发布产物是 `dist`。
 
+### 官网客服构建配置
+
+构建前在被 Git 忽略的 `.env.local` 配置 `VITE_WEBSITE_WIDGET_ID` 和
+`VITE_WEBSITE_WIDGET_API_BASE`，使用目标环境已有的客服配置，不新建或替换关联分身。
+Docker 不复制 `.env*`，必须显式传递这两个同名 build args。
+Compose 从 Docker 仓库 `.env` 的 `OFFICIAL_WEBSITE_WIDGET_ID` /
+`OFFICIAL_WEBSITE_WIDGET_API_BASE_URL` 传入，未覆盖时复用
+`OPEN_PLATFORM_WEBSITE_WIDGET_ID` / `OPEN_PLATFORM_WEBSITE_WIDGET_API_BASE_URL`。
+
+`npm run build` 在构建前拒绝缺失/无效的配置，并在构建后检查首页实际注入的 ID、API 地址、
+loader 和 iframe 资源；残留占位符、入口丢失或配置不一致会使构建失败。
+`npm run check:widget` 可单独复查现有产物。Widget 的 Origin 白名单仍由 Chat 校验，
+本地页面须使用本地配置允许的 Origin；不要为本地验证放宽生产白名单。
+
 ## 内容维护
 
 - 品牌事实源：`public/brand-facts.json`。修改后运行兄弟 Docker 仓库的 `scripts/check-site-brand.py --sync`，并审核开放平台镜像文件。

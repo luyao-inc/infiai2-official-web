@@ -3,6 +3,11 @@ import type { ClientOS } from './clientPlatform'
 export type AppVersionPlatform = 'windows' | 'macos' | 'ios' | 'android'
 export type AppVersionArch = 'all' | 'x64' | 'arm64' | 'ia32'
 
+/** 官网入口策略；不影响后台版本管理或客户端自身更新。 */
+export function isPublicDownloadOS(os: ClientOS): os is 'ios' | 'android' {
+  return os === 'ios' || os === 'android'
+}
+
 export type AppVersionRecord = {
   id?: string
   platform: AppVersionPlatform
@@ -106,7 +111,7 @@ export async function fetchPublicDownloadVersions(baseURL: string): Promise<Down
       operationID: operationID(),
     },
     body: JSON.stringify({
-      platform: ['windows', 'macos', 'ios', 'android'],
+      platform: ['ios', 'android'],
       channel: 'prod',
       status: 'published',
       pagination: {
@@ -122,6 +127,7 @@ export async function fetchPublicDownloadVersions(baseURL: string): Promise<Down
     .filter(publicRelease)
     .map(toDownloadVersion)
     .filter((item): item is DownloadVersion => item != null)
+    .filter((item) => isPublicDownloadOS(item.os))
     .sort((a, b) => b.buildNumber - a.buildNumber)
 }
 

@@ -65,6 +65,8 @@ export type Messages = {
     copyrightSuffix: string
     downloadModalTitle: string
     downloadModalSub: string
+    downloadDesktopHint: string
+    downloadOpenWeb: string
     downloadReleased: string
     downloadDetected: string
     downloadOtherPlatforms: string
