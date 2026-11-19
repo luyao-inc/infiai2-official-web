@@ -15,7 +15,7 @@
     <main class="lx-legal-wrap">
       <a class="lx-legal-back" href="/en/">← Back to home</a>
       <h1>Privacy Policy</h1>
-      <p class="lx-legal-updated">Effective Date:2026.05.20</p>
+      <p class="lx-legal-updated">Effective Date:2026.05.20 · Last Updated: 2026.11.19 (payment and account SDKs added to the SDK directory)</p>
       <p>The <strong>application operator</strong> and <strong>application developer</strong> for the products and services covered by this Policy are both Shanghai Puying Information Technology Co., Ltd. The Lingxie platform (including the mobile client, hereinafter &quot;Lingxie&quot;) is operated and developed by Shanghai Puying Information Technology Co., Ltd. (hereinafter &quot;we&quot;).</p>
       <p>We fully recognize the importance of data security. This Privacy Policy aims to clarify the rules for us to collect, use, store, share, protect and process your relevant information, as well as define your rights and obligations. By clicking &quot;Agree&quot;, completing registration or actually using the Platform Services, you are deemed to have fully read, understood and agreed to all contents of this Policy, including any subsequent revised versions. If you do not agree to any provisions of this Policy, please do not use the Platform Services.</p>
       <p>This Policy is a part of the &quot;Service Term&quot; and shall have the same legal effect as the User Agreement. In case of any conflict between this Policy and the User Agreement, the provisions of this Policy shall prevail (unless otherwise mandated by applicable laws and regulations).</p>
@@ -151,7 +151,7 @@
       <ul><li>Any disputes arising from or in connection with this Policy shall first be resolved through friendly negotiation between the parties. If negotiation fails, either party has the right to file a lawsuit with the competent court of the place where our company is registered;</li><li>This Policy constitutes the entire agreement between you and us regarding information protection, replacing all previous oral or written agreements;</li><li>If any clause of this Policy is deemed invalid or unenforceable, it shall not affect the validity of other clauses, which shall remain in full force and effect;</li></ul>
       <p>Our failure to exercise or delay in exercising any right under this Policy shall not be deemed a waiver of such right.</p>
       <h2>XII. Third-Party SDK Directory (Lingxie Mobile Client)</h2>
-      <p>To provide instant messaging, offline push notifications, and audio/video calls, the Lingxie mobile client (Android / iOS) integrates the third-party SDKs listed below. Each SDK may collect device identifiers, network information, push tokens, media you upload, and related data as described in the provider&apos;s published privacy rules. This directory supplements the Policy above; if you only use the Lingxie website or self-hosted deployment without the mobile app, the entries below do not apply.</p>
+      <p>To provide instant messaging, offline push notifications, audio/video calls, sign-in, and payments, the Lingxie mobile client (Android / iOS) integrates the third-party SDKs listed below. Each SDK may collect device identifiers, network information, push tokens, media you upload, and related data as described in the provider&apos;s published privacy rules. This directory supplements the Policy above; if you only use the Lingxie website or self-hosted deployment without the mobile app, the entries below do not apply.</p>
       <h3>12.1 Push services</h3>
       <div class="lx-legal-table-wrap">
         <table class="lx-legal-table">
@@ -317,7 +317,42 @@
           </tbody>
         </table>
       </div>
-      <h3>12.4 Device-capability Flutter plugins</h3>
+      <h3>12.4 Payments and account</h3>
+      <p class="lx-legal-note">The SDK names, developers, platform identifiers, and privacy policy links below are consistent with the registration information on the <a href="https://sdk.caict.ac.cn/official/#/home" rel="noopener noreferrer" target="_blank">National SDK Management Service Platform</a>.</p>
+      <div class="lx-legal-table-wrap">
+        <table class="lx-legal-table">
+          <thead>
+            <tr>
+              <th scope="col">SDK name</th>
+              <th scope="col">Developer</th>
+              <th scope="col">Platform</th>
+              <th scope="col">Information collected</th>
+              <th scope="col">Purpose</th>
+              <th scope="col">Privacy policy link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>APP支付客户端SDK</td>
+              <td>支付宝(杭州)信息技术有限公司</td>
+              <td>Android (com.alipay.sdk), iOS (AlipaySDK-iOS)</td>
+              <td>Device identifiers, network information, payment transaction information</td>
+              <td>In-app Alipay payments</td>
+              <td><a href="https://opendocs.alipay.com/open/54/01g6qm#%E6%94%AF%E4%BB%98%E5%AE%9D%20App%20%E6%94%AF%E4%BB%98%E5%AE%A2%E6%88%B7%E7%AB%AF%20SDK%20%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96" rel="noopener noreferrer" target="_blank">APP支付客户端SDK Privacy Policy</a></td>
+            </tr>
+            <tr>
+              <td>微信OpenSDK Android</td>
+              <td>深圳市腾讯计算机系统有限公司</td>
+              <td>Android (com.tencent.mm.opensdk), iOS (WechatOpenSDK)</td>
+              <td>Device information, WeChat sign-in authorization data, network status, payment transaction information</td>
+              <td>WeChat sign-in, sharing, and payments</td>
+              <td><a href="https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8" rel="noopener noreferrer" target="_blank">WeChat OpenSDK privacy statement</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lx-legal-note">These SDKs are invoked only when you choose Alipay/WeChat Pay, WeChat sign-in, or sharing. Sensitive payment details such as bank card numbers and payment passwords are processed directly by the payment institutions and are not collected by us.</p>
+      <h3>12.5 Device-capability Flutter plugins</h3>
       <p>These open-source plugins invoke system APIs or local capabilities. Where no separate vendor privacy page exists, processing is described in this Policy.</p>
       <div class="lx-legal-table-wrap">
         <table class="lx-legal-table">
@@ -390,7 +425,7 @@
           </tbody>
         </table>
       </div>
-      <h3>12.5 Additional iOS integrations</h3>
+      <h3>12.6 Additional iOS integrations</h3>
       <div class="lx-legal-table-wrap">
         <table class="lx-legal-table">
           <thead>
@@ -427,7 +462,7 @@
           </tbody>
         </table>
       </div>
-      <h3>12.6 Not currently enabled</h3>
+      <h3>12.7 Not currently enabled</h3>
       <p>The following are not enabled or not integrated in production builds and are listed for reference only:</p>
       <ul>
         <li><strong>Google FCM (Android)</strong>: enable.fcm=false; not enabled in production Android builds.</li>

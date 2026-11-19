@@ -15,7 +15,7 @@
     <main class="lx-legal-wrap">
       <a class="lx-legal-back" href="/">← 返回首页</a>
       <h1>灵谐平台隐私政策</h1>
-      <p class="lx-legal-updated">生效日期：2026年05月20日 · 最近更新：2026年06月09日（账户注销流程说明）</p>
+      <p class="lx-legal-updated">生效日期：2026年05月20日 · 最近更新：2026年11月19日（第三方 SDK 目录补充支付与账号类 SDK）</p>
       <p>本政策适用产品与服务的<strong>应用运营方</strong>与<strong>应用研发方</strong>均为：上海璞赢信息科技有限公司。灵谐平台（含移动客户端，以下简称「灵谐」）由上海璞赢信息科技有限公司（以下简称「我们」）运营和研发。</p>
       <p>我们深知数据安全的重要性。本隐私政策旨在明确我们收集、使用、存储、共享、保护及处理您相关信息的规则，同时界定您的权利与义务。您点击「同意」、完成注册或实际使用平台服务，即视为您已充分阅读、理解并同意本政策全部内容，包括后续修订版本。如您不同意本政策任何条款，请勿使用平台服务。</p>
       <p>本政策是《灵谐平台服务条款》的组成部分，与用户协议具有同等法律效力。若本政策与用户协议存在冲突，以本政策约定为准（法律法规另有强制性规定的除外）。</p>
@@ -151,7 +151,7 @@
       <ul><li>因本政策引起的或与本政策有关的任何争议，双方应首先友好协商解决；协商不成的，任何一方均有权向我们公司注册地有管辖权的法院提起诉讼；</li><li>本政策构成您与我们之间关于信息保护的完整协议，取代此前所有口头或书面约定；</li><li>若本政策的任何条款被认定为无效或不可执行，不影响其他条款的效力，其他条款继续有效；</li></ul>
       <p>我们未行使或延迟行使本政策项下的任何权利，不视为放弃该权利。</p>
       <h2>十二、灵谐移动客户端第三方 SDK 目录</h2>
-      <p>为实现即时通讯、离线推送、音视频通话等功能，灵谐移动客户端（Android / iOS）接入以下第三方 SDK。各 SDK 可能收集设备标识、网络信息、推送 Token、您主动上传的媒体内容等，具体以该 SDK 提供方公示的个人信息处理规则为准。本目录与上文隐私政策一并适用；若您仅使用灵谐平台网站或自托管部署且未安装移动客户端，则不涉及下列 SDK。</p>
+      <p>为实现即时通讯、离线推送、音视频通话、登录与支付等功能，灵谐移动客户端（Android / iOS）接入以下第三方 SDK。各 SDK 可能收集设备标识、网络信息、推送 Token、您主动上传的媒体内容等，具体以该 SDK 提供方公示的个人信息处理规则为准。本目录与上文隐私政策一并适用；若您仅使用灵谐平台网站或自托管部署且未安装移动客户端，则不涉及下列 SDK。</p>
       <h3>12.1 推送类</h3>
       <p class="lx-legal-note">下列 SDK 名称、开发者、Android 包名/标识及隐私政策链接与<a href="https://sdk.caict.ac.cn/official/#/home" rel="noopener noreferrer" target="_blank">全国 SDK 管理服务平台</a>登记信息保持一致。</p>
       <div class="lx-legal-table-wrap">
@@ -318,7 +318,42 @@
           </tbody>
         </table>
       </div>
-      <h3>12.4 设备能力类 Flutter 插件</h3>
+      <h3>12.4 支付与账号</h3>
+      <p class="lx-legal-note">下列 SDK 名称、开发者、平台/包名及隐私政策链接与<a href="https://sdk.caict.ac.cn/official/#/home" rel="noopener noreferrer" target="_blank">全国 SDK 管理服务平台</a>登记信息保持一致。</p>
+      <div class="lx-legal-table-wrap">
+        <table class="lx-legal-table">
+          <thead>
+            <tr>
+              <th scope="col">SDK 名称</th>
+              <th scope="col">开发者</th>
+              <th scope="col">平台</th>
+              <th scope="col">收集的信息类型</th>
+              <th scope="col">使用目的</th>
+              <th scope="col">隐私政策链接</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>APP支付客户端SDK</td>
+              <td>支付宝(杭州)信息技术有限公司</td>
+              <td>Android（com.alipay.sdk）、iOS（AlipaySDK-iOS）</td>
+              <td>设备标识、网络信息、支付交易信息</td>
+              <td>支付宝 App 内支付</td>
+              <td><a href="https://opendocs.alipay.com/open/54/01g6qm#%E6%94%AF%E4%BB%98%E5%AE%9D%20App%20%E6%94%AF%E4%BB%98%E5%AE%A2%E6%88%B7%E7%AB%AF%20SDK%20%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96" rel="noopener noreferrer" target="_blank">APP支付客户端SDK 隐私政策</a></td>
+            </tr>
+            <tr>
+              <td>微信OpenSDK Android</td>
+              <td>深圳市腾讯计算机系统有限公司</td>
+              <td>Android（com.tencent.mm.opensdk）、iOS（WechatOpenSDK）</td>
+              <td>设备信息、微信登录授权信息、网络状态、支付交易信息</td>
+              <td>微信登录、分享、支付</td>
+              <td><a href="https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8" rel="noopener noreferrer" target="_blank">微信 OpenSDK 隐私说明</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="lx-legal-note">上述 SDK 仅在您主动选择支付宝/微信支付、微信登录或分享时调用；支付过程中的银行卡号、支付密码等敏感信息由支付机构直接处理，我们不会收集。</p>
+      <h3>12.5 设备能力类 Flutter 插件</h3>
       <p>下列开源 Flutter 插件由本 App 调用系统接口或本地能力，无独立厂商隐私页时，处理规则见本政策。</p>
       <div class="lx-legal-table-wrap">
         <table class="lx-legal-table">
@@ -391,7 +426,7 @@
           </tbody>
         </table>
       </div>
-      <h3>12.5 iOS 额外集成</h3>
+      <h3>12.6 iOS 额外集成</h3>
       <div class="lx-legal-table-wrap">
         <table class="lx-legal-table">
           <thead>
@@ -428,7 +463,7 @@
           </tbody>
         </table>
       </div>
-      <h3>12.6 当前未启用项</h3>
+      <h3>12.7 当前未启用项</h3>
       <p>下列能力在工程中未启用或未接入正式 SDK，一般不列入「已集成第三方个人信息 SDK」，供对照说明：</p>
       <ul>
         <li><strong>Google FCM（Android）</strong>：enable.fcm=false，正式 Android 包未启用。</li>
